@@ -1,0 +1,10 @@
+{
+  "Name": "hygen.effect.focus_heal_target",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#49d17d",
+    "EntityTopTint": "#b8ffd1"
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete"
+}

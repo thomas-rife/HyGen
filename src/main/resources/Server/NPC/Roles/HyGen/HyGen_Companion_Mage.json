@@ -1,0 +1,60 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Tuluk_Fisherman",
+    "DropList": "Empty",
+    "DefaultPlayerAttitude": "Friendly",
+    "AttitudeGroup": "HyGen_Companion",
+    "Weapons": ["Weapon_Staff_Frost"],
+    "OffHand": [],
+    "DefaultOffHandSlot": -1,
+    "NighttimeOffhandSlot": -1,
+    "WakingPeriod": [0.0, 24.0],
+    "BedBlockSet": "",
+    "ApplySeparation": true,
+    "ViewRange": 96,
+    "ViewSector": 360,
+    "AbsoluteDetectionRange": 96,
+    "AlertedRange": 96,
+    "HearingRange": 96,
+    "WanderRadius": 8,
+    "LeashDistance": 96,
+    "HardLeashDistance": 160,
+    "Attack": "Skeleton_Mage_Wand_Corruption_Orb",
+    "AttackDistance": 15,
+    "DesiredAttackDistanceRange": [8, 12],
+    "AttackPauseRange": [2.0, 2.0],
+    "CombatBehaviorDistance": 96,
+    "CombatBackOffAfterAttack": false,
+    "CombatBackOffDistanceRange": [4, 6],
+    "CombatStrafeWeight": 12,
+    "CombatDirectWeight": 2,
+    "CombatFleeIfTooCloseDistance": 3.5,
+    "TargetRange": 96,
+    "ChaseRelativeSpeed": 0.68,
+    "CombatMovingRelativeSpeed": 0.5,
+    "MaxSpeed": 3.6,
+    "MaxHealth": 82,
+    "DisableDamageGroups": ["Self"],
+    "_InteractionVars": {
+      "Melee_Damage": {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.HyGen_Companion_Mage.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

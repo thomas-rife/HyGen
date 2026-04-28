@@ -1,0 +1,83 @@
+Group #LevelSelectRoot {
+  Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+  LayoutMode: Middle;
+
+  Button #BackBtn {
+    Anchor: (Top: 40, Right: 40, Width: 140, Height: 50);
+    OutlineColor: #f4e9d5;
+    OutlineSize: 2;
+    Style: (
+      Default: (Background: (Color: #1a1a1a(0.8))),
+      Hovered: (Background: (Color: #c5b496)),
+      Pressed: (Background: (Color: #e6d5b8))
+    );
+    Label {
+      Text: "Back";
+      Style: (FontSize: 22, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+    }
+  }
+
+  Group #MapFrame {
+    Anchor: (Width: 1188, Height: 454);
+
+    Group #RouteLine01 { Anchor: (Left: 260, Top: 222, Width: 106, Height: 4); Background: (Color: #0f0e0b(0.4)); }
+    Group #RouteLine02 { Anchor: (Left: 450, Top: 222, Width: 106, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine03 { Anchor: (Left: 640, Top: 222, Width: 52, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+    Group #BranchStub { Anchor: (Left: 688, Top: 143, Width: 4, Height: 164); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine04 { Anchor: (Left: 696, Top: 143, Width: 50, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine05 { Anchor: (Left: 696, Top: 299, Width: 50, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine06 { Anchor: (Left: 830, Top: 143, Width: 62, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine07 { Anchor: (Left: 830, Top: 299, Width: 62, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine08 { Anchor: (Left: 888, Top: 143, Width: 4, Height: 164); Background: (Color: #0f0e0b(0.2)); }
+    Group #RouteLine09 { Anchor: (Left: 896, Top: 222, Width: 50, Height: 4); Background: (Color: #0f0e0b(0.2)); }
+
+    // Node 01
+    Group #LevelNode01C { Anchor: (Left: 176, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode01BtnC { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #f4e9d5)), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "1"; Style: (FontSize: 30, TextColor: #1a1a1a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode01U { Anchor: (Left: 176, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode01BtnU { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "1"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode01L { Anchor: (Left: 176, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode01BtnL { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "1"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+
+    // Node 02
+    Group #LevelNode02C { Anchor: (Left: 366, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode02BtnC { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #f4e9d5)), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "2"; Style: (FontSize: 30, TextColor: #1a1a1a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode02U { Anchor: (Left: 366, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode02BtnU { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "2"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode02L { Anchor: (Left: 366, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode02BtnL { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "2"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+
+    // Node 03
+    Group #LevelNode03C { Anchor: (Left: 556, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode03BtnC { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #f4e9d5)), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "3"; Style: (FontSize: 30, TextColor: #1a1a1a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode03U { Anchor: (Left: 556, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode03BtnU { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "3"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode03L { Anchor: (Left: 556, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode03BtnL { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "3"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+
+    // Node 04
+    Group #LevelNode04C { Anchor: (Left: 746, Top: 101, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode04BtnC { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #f4e9d5)), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "4"; Style: (FontSize: 32, TextColor: #1a1a1a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode04U { Anchor: (Left: 746, Top: 101, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode04BtnU { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "4"; Style: (FontSize: 32, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode04L { Anchor: (Left: 746, Top: 101, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode04BtnL { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "4"; Style: (FontSize: 32, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+
+    // Node 05
+    Group #LevelNode05C { Anchor: (Left: 746, Top: 257, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode05BtnC { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #f4e9d5)), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "5"; Style: (FontSize: 32, TextColor: #1a1a1a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode05U { Anchor: (Left: 746, Top: 257, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode05BtnU { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "5"; Style: (FontSize: 32, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode05L { Anchor: (Left: 746, Top: 257, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode05BtnL { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "5"; Style: (FontSize: 32, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+
+    // Node 06
+    Group #LevelNode06C { Anchor: (Left: 946, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode06BtnC { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #f4e9d5)), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "6"; Style: (FontSize: 30, TextColor: #1a1a1a, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode06U { Anchor: (Left: 946, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode06BtnU { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "6"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+    Group #LevelNode06L { Anchor: (Left: 946, Top: 181, Width: 84, Height: 84); Visible: false; OutlineColor: #0f0e0b; OutlineSize: 2; Button #LevelNode06BtnL { Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0); Style: ( Default: (Background: (Color: #1a1a1a(0.9))), Hovered: (Background: (Color: #c5b496)), Pressed: (Background: (Color: #e6d5b8)) ); Label { Text: "6"; Style: (FontSize: 30, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } } }
+
+    Group #TutorialCard {
+      Anchor: (Left: 176, Top: 370, Width: 854, Height: 70);
+      Background: (Color: #1a1a1a(0.82));
+      OutlineColor: #f4e9d5;
+      OutlineSize: 2;
+
+      Label #TutorialTitle {
+        Text: "How to Play";
+        Anchor: (Top: 10, Left: 20, Width: 150, Height: 22);
+        Style: (FontSize: 18, TextColor: #f4e9d5, RenderBold: true, HorizontalAlignment: Start, VerticalAlignment: Center);
+      }
+
+      Label #TutorialBody {
+        Text: "WASD to move    1, 2, 3 to swap characters    Right Click for abilities";
+        Anchor: (Top: 38, Left: 20, Right: 20, Height: 22);
+        Style: (FontSize: 15, TextColor: #f4e9d5, HorizontalAlignment: Center, VerticalAlignment: Center);
+      }
+    }
+  }
+}

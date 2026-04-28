@@ -1,0 +1,93 @@
+@HeroSlotSize = 100;
+@HeroSlotSpacing = 12;
+@SelectedGridWidth = 324;
+@AvailableGridWidth = (@HeroSlotSize * 5) + (@HeroSlotSpacing * 4);
+
+Group #HeroSelectRoot {
+  Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+  LayoutMode: Middle;
+
+  Group #Panel {
+    Anchor: (Width: 1080, Height: 460);
+    Background: (Color: #0e1622(0.97));
+    OutlineColor: #6c84a2;
+    OutlineSize: 1;
+    Padding: (Full: 24);
+    LayoutMode: Top;
+
+    Group #HeaderRow {
+      Anchor: (Height: 44, Bottom: 18);
+      LayoutMode: Left;
+
+      Label #Header {
+        Text: "Hero Select";
+        FlexWeight: 1;
+        Style: (FontSize: 30, TextColor: #f0f5ff, RenderBold: true, HorizontalAlignment: Start, VerticalAlignment: Center);
+      }
+
+      Button #BackBtn {
+        Anchor: (Width: 110, Height: 38, Right: 12);
+        Style: (
+          Default: (Background: (Color: #35506e)),
+          Hovered: (Background: (Color: #446688)),
+          Pressed: (Background: (Color: #2a4058))
+        );
+        Label {
+          Text: "Back";
+          Style: (FontSize: 16, TextColor: #f0f4ff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+      }
+
+    }
+
+    Label {
+      Text: "Selected Party";
+      Anchor: (Height: 28, Bottom: 8);
+      Style: (FontSize: 19, TextColor: #f4d6a0, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+    }
+
+    Group #SelectedHeroSection {
+      Anchor: (Height: @HeroSlotSize, Bottom: 36);
+      LayoutMode: Middle;
+
+      ItemGrid #SelectedHeroGrid {
+        Anchor: (Width: @SelectedGridWidth, Height: @HeroSlotSize);
+        SlotsPerRow: 3;
+        AreItemsDraggable: true;
+        DisplayItemQuantity: false;
+        RenderItemQualityBackground: false;
+        Style: (
+          SlotSize: @HeroSlotSize,
+          SlotIconSize: 72,
+          SlotSpacing: @HeroSlotSpacing,
+          SlotBackground: "images/HeroSlot.png"
+        );
+      }
+    }
+
+    Label {
+      Text: "Available Heroes";
+      Anchor: (Height: 28, Bottom: 8);
+      Style: (FontSize: 19, TextColor: #c7d9f2, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+    }
+
+    Group #AvailableHeroSection {
+      Anchor: (Height: @HeroSlotSize);
+      LayoutMode: Middle;
+
+      ItemGrid #AvailableHeroGrid {
+        Anchor: (Width: @AvailableGridWidth, Height: @HeroSlotSize);
+        SlotsPerRow: 5;
+        AreItemsDraggable: true;
+        DisplayItemQuantity: false;
+        RenderItemQualityBackground: false;
+        Style: (
+          SlotSize: @HeroSlotSize,
+          SlotIconSize: 72,
+          SlotSpacing: @HeroSlotSpacing,
+          SlotBackground: "images/HeroSlot.png"
+        );
+      }
+    }
+  }
+}

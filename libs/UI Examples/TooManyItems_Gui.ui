@@ -1,0 +1,53 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {
+  $C.@DecoratedContainer {
+    Anchor: (Width: 1050, Height: 750);
+
+    #Title {
+      Group {
+        $C.@Title {
+          @Text = "Too Many Items";
+        }
+
+        $C.@HeaderSearch {
+          #SearchInput {
+            @Placeholder = "Search Item...";
+          }
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Left;
+
+      Group #SidebarScroll {
+        Anchor: (Width: 260);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Background: (Color: #000000(0.4));
+        Padding: (Full: 10);
+      }
+
+      Group { Anchor: (Width: 10); }
+
+      Group #CommandInfo {
+        FlexWeight: 1;
+        LayoutMode: TopScrolling;
+        Padding: (Left: 10);
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+        Group #SubcommandSection {
+          LayoutMode: Top;
+          Visible: true;
+
+          Group #SubcommandCards {
+            LayoutMode: Top;
+          }
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

@@ -1,0 +1,19 @@
+{
+  "Name": "hygen.effect.warden_healing_aura",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#26a69a",
+    "EntityTopTint": "#b2dfdb",
+    "Particles": [
+      {
+        "SystemId": "Impact_Critical",
+        "Color": "#80cbc4",
+        "Scale": 0.35,
+        "PositionOffset": { "X": 0.0, "Y": 2.8, "Z": 0.0 }
+      }
+    ]
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete",
+  "Debuff": false
+}

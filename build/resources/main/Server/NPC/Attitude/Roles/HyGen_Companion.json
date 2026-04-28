@@ -1,0 +1,10 @@
+{
+  "Groups": {
+    "Friendly": [
+      "HyGen_Companions"
+    ],
+    "Hostile": [
+      "HyGen_Enemies"
+    ]
+  }
+}

@@ -1,0 +1,147 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {
+  $C.@DecoratedContainer {
+    Anchor: (Width: 1050, Height: 750);
+
+    #Title {
+      Group {
+        Anchor: (Height: 50);
+
+        $C.@Title {
+          @Text = "ITEM DETAILS";
+          @Alignment = Center;
+          Anchor: (Horizontal: 0, Vertical: 6);
+        }
+
+        $C.@SecondaryTextButton #BackButton {
+          @Text = "<";
+          Anchor: (Width: 40, Height: 32, Right: 10, Top: 9);
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Left;
+      Padding: (Full: 20);
+
+      Group #LeftPanel {
+        Anchor: (Width: 400);
+        LayoutMode: Center;
+        Background: (Color: #000000(0.3));
+        Padding: (Full: 20);
+
+        Group #ItemDisplay {
+          LayoutMode: Top;
+          
+          ItemIcon #SelectedItemIcon {
+            Anchor: (Width: 128, Height: 128);
+          }
+
+          Group { Anchor: (Height: 10); }
+
+          Label #SelectedItemName {
+            Style: (
+              FontSize: 24
+            );
+          }
+        }
+      }
+
+      Group { Anchor: (Width: 20); }
+
+      Group #RightPanel {
+        FlexWeight: 1;
+        LayoutMode: Top;
+
+        Group #WorkbenchSection {
+          Anchor: (Height: 200);
+          LayoutMode: Top;
+          Background: (Color: #000000(0.3));
+          Padding: (Full: 15);
+
+          Label #WorkbenchLabel {
+            Style: (
+              FontSize: 18,
+              TextColor: #93844c
+            );
+            Text: "Crafted At:";
+          }
+
+          Group { Anchor: (Height: 10); }
+
+          Group #WorkbenchDisplay {
+            LayoutMode: Left;
+
+            ItemIcon #WorkbenchIcon {
+              Anchor: (Width: 64, Height: 64);
+            }
+
+            Group { Anchor: (Width: 10); }
+
+            Label #WorkbenchName {
+              Style: (
+                FontSize: 16
+              );
+            }
+          }
+        }
+
+        Group { Anchor: (Height: 20); }
+
+        Group #IngredientsSection {
+          FlexWeight: 1;
+          LayoutMode: Top;
+          Background: (Color: #000000(0.3));
+          Padding: (Full: 15);
+
+          Group {
+            LayoutMode: Left;
+            Anchor: (Height: 30);
+
+            Label #IngredientsLabel {
+              Style: (
+                FontSize: 18,
+                TextColor: #93844c
+              );
+              Text: "Required Ingredients:";
+            }
+
+            Group { Anchor: (Width: 10); }
+
+            Button #PinButton {
+              Anchor: (Width: 140, Height: 26);
+              Background: (Color: #3a3a3a);
+              Padding: (Full: 5);
+              
+              Style: (
+                Hovered: (
+                  Background: #4a4a4a,
+                ),
+                Pressed: (
+                  Background: #2a2a2a,
+                )
+              );
+              
+              Label #PinText {
+                Style: (
+                  FontSize: 13,
+                  TextColor: #ffffff,
+                  HorizontalAlignment: Center,
+                  VerticalAlignment: Center
+                );
+                Text: "Pin";
+              }
+            }
+          }
+
+          Group { Anchor: (Height: 10); }
+
+          Group #IngredientsGrid {
+            LayoutMode: Left;
+          }
+        }
+      }
+    }
+  }
+}

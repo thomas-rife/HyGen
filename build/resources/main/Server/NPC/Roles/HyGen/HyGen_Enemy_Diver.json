@@ -1,0 +1,79 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Goblin_Scrapper",
+    "DropList": "Empty",
+    "DefaultPlayerAttitude": "Hostile",
+    "AttitudeGroup": "HyGen_Enemy",
+    "Weapons": [
+      "Weapon_Club_Scrap"
+    ],
+    "OffHand": [],
+    "DefaultOffHandSlot": -1,
+    "NighttimeOffhandSlot": -1,
+    "WakingPeriod": [
+      0.0,
+      24.0
+    ],
+    "BedBlockSet": "",
+    "ApplySeparation": true,
+    "ViewRange": 96,
+    "ViewSector": 360,
+    "AbsoluteDetectionRange": 96,
+    "AlertedRange": 96,
+    "HearingRange": 96,
+    "WanderRadius": 12,
+    "LeashDistance": 96,
+    "HardLeashDistance": 160,
+    "AttackDistance": 2.0,
+    "DesiredAttackDistanceRange": [
+      1.3,
+      1.6
+    ],
+    "AttackPauseRange": [
+      2.0,
+      2.0
+    ],
+    "CombatBehaviorDistance": 6,
+    "CombatBackOffDistanceRange": [
+      1,
+      2
+    ],
+    "CombatBackOffDurationRange": [
+      0.4,
+      0.8
+    ],
+    "CombatStrafeWeight": 10,
+    "CombatDirectWeight": 12,
+    "ChaseRelativeSpeed": 0.9,
+    "MaxSpeed": 2.2,
+    "MaxHealth": 68,
+    "DisableDamageGroups": [
+      "Self"
+    ],
+    "_InteractionVars": {
+      "Melee_Damage": {
+        "Interactions": [
+          {
+            "Parent": "NPC_Attack_Melee_Damage",
+            "DamageCalculator": {
+              "BaseDamage": {
+                "Physical": 11
+              }
+            }
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.HyGen_Enemy_Diver.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

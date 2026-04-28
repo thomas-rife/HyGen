@@ -1,0 +1,32 @@
+$C = "../Common.ui";
+
+Button {
+  Anchor: (Width: 240, Height: 44, Left: 0);
+  Padding: (Top: 6, Bottom: 6, Left: 8, Right: 10);
+  Background: (Color: #000000(0.0));
+  LayoutMode: Left;
+  
+  Style: (
+    Hovered: (
+      Background: #ffffff(0.1),
+    ),
+    Pressed: (
+      Background: #ffffff(0.2),
+    )
+  );
+
+  ItemIcon #SidebarIcon {
+    Anchor: (Width: 32, Height: 32);
+  }
+
+  Group { Anchor: (Width: 8); }
+
+  Label #SidebarLabel {
+    Anchor: (Vertical: 0);
+    Style: (
+      FontSize: 15,
+      TextColor: #ffffff,
+      VerticalAlignment: Center
+    );
+  }
+}

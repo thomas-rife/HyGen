@@ -1,0 +1,18 @@
+{
+  "Name": "hygen.effect.vanguard_guard",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#1e88ff",
+    "EntityTopTint": "#90caf9",
+    "Particles": [
+      {
+        "SystemId": "Impact_Critical",
+        "Color": "#90caf9",
+        "Scale": 0.35,
+        "PositionOffset": { "X": 0.0, "Y": 2.8, "Z": 0.0 }
+      }
+    ]
+  },
+  "Duration": 10,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete"
+}

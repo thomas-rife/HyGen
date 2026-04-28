@@ -1,0 +1,10 @@
+{
+  "Name": "hygen.effect.mapped_target",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#fff200",
+    "EntityTopTint": "#ffff00"
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete"
+}

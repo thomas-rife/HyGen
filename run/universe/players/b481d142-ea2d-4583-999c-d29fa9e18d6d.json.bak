@@ -1,0 +1,921 @@
+{
+  "Components": {
+    "Nameplate": {
+      "Text": "thomasrife"
+    },
+    "BackpackInventory": {
+      "Inventory": {
+        "Id": "Empty"
+      }
+    },
+    "UtilityInventory": {
+      "Inventory": {
+        "Id": "Simple",
+        "Capacity": 4,
+        "Items": {}
+      },
+      "ActiveSlot": -1
+    },
+    "EffectController": {},
+    "ObjectiveHistory": {
+      "ObjectiveHistory": {},
+      "ObjectiveLineHistory": {}
+    },
+    "ToolInventory": {
+      "Inventory": {
+        "Id": "Simple",
+        "Capacity": 23,
+        "Items": {
+          "0": {
+            "Id": "EditorTool_Paint",
+            "Quantity": 1,
+            "Durability": 0.0,
+            "MaxDurability": 0.0,
+            "OverrideDroppedItemAnimation": false
+          },
+          "2": {
+            "Id": "EditorTool_Selection",
+            "Quantity": 1,
+            "Durability": 0.0,
+            "MaxDurability": 0.0,
+            "OverrideDroppedItemAnimation": false
+          },
+          "4": {
+            "Id": "EditorTool_Line",
+            "Quantity": 1,
+            "Durability": 0.0,
+            "MaxDurability": 0.0,
+            "OverrideDroppedItemAnimation": false
+          },
+          "1": {
+            "Id": "EditorTool_Sculpt",
+            "Quantity": 1,
+            "Durability": 0.0,
+            "MaxDurability": 0.0,
+            "OverrideDroppedItemAnimation": false
+          },
+          "3": {
+            "Id": "EditorTool_Paste",
+            "Quantity": 1,
+            "Durability": 0.0,
+            "MaxDurability": 0.0,
+            "OverrideDroppedItemAnimation": false
+          },
+          "5": {
+            "Id": "EditorTool_Layers",
+            "Quantity": 1,
+            "Durability": 0.0,
+            "MaxDurability": 0.0,
+            "OverrideDroppedItemAnimation": false
+          }
+        }
+      },
+      "ActiveSlot": -1
+    },
+    "DisplayName": {
+      "DisplayName": {
+        "RawText": "thomasrife",
+        "Bold": null,
+        "Italic": null,
+        "Monospace": null,
+        "Underline": null
+      }
+    },
+    "UIComponentList": {},
+    "HotbarInventory": {
+      "Inventory": {
+        "Id": "Simple",
+        "Capacity": 9,
+        "Items": {}
+      },
+      "ActiveSlot": 0
+    },
+    "Transform": {
+      "Position": {
+        "X": 773.5,
+        "Y": 63.5,
+        "Z": 2131.5
+      },
+      "Rotation": {
+        "Pitch": 0.0,
+        "Yaw": -1.629190444946289,
+        "Roll": 0.0
+      }
+    },
+    "BuilderTools": {
+      "SelectionHistory": true
+    },
+    "StorageInventory": {
+      "Inventory": {
+        "Id": "Simple",
+        "Capacity": 36,
+        "Items": {}
+      }
+    },
+    "Velocity": {
+      "Velocity": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    },
+    "Player": {
+      "Version": 5,
+      "UUID": {
+        "$binary": "tIHRQuotRYOZnNKfqeGNbQ==",
+        "$type": "04"
+      },
+      "Inventory": {
+        "Version": 4,
+        "ActiveHotbarSlot": 0,
+        "ActiveToolsSlot": -1,
+        "ActiveUtilitySlot": -1
+      },
+      "PlayerData": {
+        "BlockIdVersion": 11,
+        "World": "default",
+        "KnownRecipes": [],
+        "PerWorldData": {
+          "bh-level-run-level_4-1777264190251": {
+            "LastPosition": {
+              "X": 24.813152313232422,
+              "Y": 181.0,
+              "Z": -44.1284294128418,
+              "Pitch": 4.76837158203125E-7,
+              "Yaw": 1.7009738683700562,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_1-1777261813092": {
+            "LastPosition": {
+              "X": 22.006227493286133,
+              "Y": 181.0,
+              "Z": -21.778112411499023,
+              "Pitch": 7.152557373046875E-7,
+              "Yaw": -1.0413007736206055,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-552cd118-669c-495e-9bbb-cd748815e6a5",
+                "Transform": {
+                  "X": 24.964107260380874,
+                  "Y": 181.0,
+                  "Z": -21.70514625119924,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 1
+              },
+              {
+                "MarkerId": "death-marker-440c9598-a5d2-4220-a681-f1f8fe40c59c",
+                "Transform": {
+                  "X": 21.848100662231445,
+                  "Y": 181.0,
+                  "Z": -21.9470272064209,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 1
+              }
+            ],
+            "UserMarkers": []
+          },
+          "aiworld_b481d142_1777259755286_498d3a27": {
+            "LastPosition": {
+              "X": 1084.7252197265625,
+              "Y": 1.0,
+              "Z": 2453.5947265625,
+              "Pitch": 1.1920928955078125E-7,
+              "Yaw": 1.6886507272720337,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-e2270ff9-96a6-4e07-85ef-d98b46be5e9a",
+                "Transform": {
+                  "X": 1089.5262451171875,
+                  "Y": 1.0,
+                  "Z": 2455.828125,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_2-1777264932711": {
+            "LastPosition": {
+              "X": 921.3251342773438,
+              "Y": 99.0,
+              "Z": 517.224853515625,
+              "Pitch": -0.004339480306953192,
+              "Yaw": -1.9071531295776367,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-5a631ed7-1f31-4acd-89d5-6c9054fcb123",
+                "Transform": {
+                  "X": 937.5776977539062,
+                  "Y": 99.0,
+                  "Z": 512.987060546875,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-87e54ac7-7e14-4881-926c-bc4cd82ffe95",
+                "Transform": {
+                  "X": 921.3852794079158,
+                  "Y": 99.0,
+                  "Z": 517.2248676477745,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_1-1777258735010": {
+            "LastPosition": {
+              "X": 31.825523376464844,
+              "Y": 181.25010681152344,
+              "Z": -23.96441650390625,
+              "Pitch": 9.5367431640625E-7,
+              "Yaw": -2.9417548179626465,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-234651a4-3410-4145-9983-ead903729d77",
+                "Transform": {
+                  "X": 17.77894401550293,
+                  "Y": 181.0,
+                  "Z": -11.940381050109863,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-76a36ca3-f8b5-49b4-a57d-edf2426c819c",
+                "Transform": {
+                  "X": 35.2415657043457,
+                  "Y": 181.0,
+                  "Z": -20.764690399169922,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_6-1777261485911": {
+            "LastPosition": {
+              "X": 2506.750244140625,
+              "Y": 102.0,
+              "Z": 477.3460388183594,
+              "Pitch": -2.384185791015625E-7,
+              "Yaw": -1.1744157075881958,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-8be7b3c5-ba59-40ff-b68e-00d43edb8bf4",
+                "Transform": {
+                  "X": 2500.4130859375,
+                  "Y": 102.0,
+                  "Z": 475.46429443359375,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-ac39a33b-950e-4e1b-9fc8-d19a0f93fa6e",
+                "Transform": {
+                  "X": 2507.55029296875,
+                  "Y": 102.0,
+                  "Z": 477.99615478515625,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_4-1777262327778": {
+            "LastPosition": {
+              "X": 767.260009765625,
+              "Y": 64.0,
+              "Z": 2482.895263671875,
+              "Pitch": -3.5762786865234375E-7,
+              "Yaw": -1.8971407413482666,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-77a40af0-2932-414b-8b92-6e29fb96171e",
+                "Transform": {
+                  "X": 768.38671875,
+                  "Y": 64.0,
+                  "Z": 2485.967529296875,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-550ff0d5-220a-4ce0-b5a5-6fb3c722dd75",
+                "Transform": {
+                  "X": 767.119140625,
+                  "Y": 64.0,
+                  "Z": 2483.815673828125,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_6-1777264368997": {
+            "LastPosition": {
+              "X": 2489.00439453125,
+              "Y": 102.0,
+              "Z": 478.9902038574219,
+              "Pitch": 0.007172107696533203,
+              "Yaw": -2.062562942504883,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-71505457-8d7e-431c-826b-a8e9fa8be07b",
+                "Transform": {
+                  "X": 2490.598876953125,
+                  "Y": 102.0,
+                  "Z": 479.0798034667969,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_2-1777264985105": {
+            "LastPosition": {
+              "X": 931.550048828125,
+              "Y": 99.0,
+              "Z": 515.761474609375,
+              "Pitch": -3.5762786865234375E-7,
+              "Yaw": -1.3829615116119385,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_1-1777258872930": {
+            "LastPosition": {
+              "X": 22.478734970092773,
+              "Y": 181.0,
+              "Z": -19.935056686401367,
+              "Pitch": 4.76837158203125E-7,
+              "Yaw": -2.4779248237609863,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-7db4d00d-7eb2-480f-92f4-67ce8a9728fd",
+                "Transform": {
+                  "X": 31.525238037109375,
+                  "Y": 181.11676025390625,
+                  "Z": -14.513656616210938,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-53ff02e0-151f-4dcb-86f2-a66279adfecf",
+                "Transform": {
+                  "X": 23.5765438079834,
+                  "Y": 181.0,
+                  "Z": -28.7421817779541,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-4cfe6c0a-4de3-49ae-bb65-b27633d472f8",
+                "Transform": {
+                  "X": 22.5233211517334,
+                  "Y": 181.0,
+                  "Z": -19.808900833129883,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_1-1777258518174": {
+            "LastPosition": {
+              "X": 27.07046127319336,
+              "Y": 181.0,
+              "Z": -42.63945388793945,
+              "Pitch": -0.23265621066093445,
+              "Yaw": -2.744760036468506,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_4-1777263674183": {
+            "LastPosition": {
+              "X": 816.7416381835938,
+              "Y": 64.0,
+              "Z": 2484.376953125,
+              "Pitch": 0.015308620408177376,
+              "Yaw": 4.640068531036377,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-3374104f-b27f-4fbd-884e-7bbfecad40db",
+                "Transform": {
+                  "X": 819.6119995117188,
+                  "Y": 62.60930252075195,
+                  "Z": 2480.887451171875,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-8fd1609d-acb9-4d90-a5c7-ec6fb563e27c",
+                "Transform": {
+                  "X": 816.7349243164062,
+                  "Y": 64.0,
+                  "Z": 2484.381591796875,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "aiworld_b481d142_1777260898098_560f43f0": {
+            "LastPosition": {
+              "X": 1280.990234375,
+              "Y": 135.12722778320312,
+              "Z": 2673.108642578125,
+              "Pitch": -0.17481675744056702,
+              "Yaw": -3.2733702659606934,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": true
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "default": {
+            "LastPosition": {
+              "X": 773.5,
+              "Y": 63.5,
+              "Z": 2131.5,
+              "Pitch": 0.0441594235599041,
+              "Yaw": -1.3927549123764038,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-239a2bd5-c5c5-4591-aa82-7a91bd223dbc",
+                "Transform": {
+                  "X": 773.5,
+                  "Y": 63.5,
+                  "Z": 2131.5,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "aiworld_b481d142_1777260250408_93402180": {
+            "LastPosition": {
+              "X": 1345.37744140625,
+              "Y": 147.08592224121094,
+              "Z": 2534.015380859375,
+              "Pitch": -0.4470164179801941,
+              "Yaw": -3.0969130992889404,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": true
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_6-1777264308999": {
+            "LastPosition": {
+              "X": 2509.870849609375,
+              "Y": 102.0,
+              "Z": 491.3351745605469,
+              "Pitch": 0.09559552371501923,
+              "Yaw": -1.7130887508392334,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-fee94c7a-d094-4b53-ad52-6f42a0361c6b",
+                "Transform": {
+                  "X": 2497.719194990595,
+                  "Y": 102.0,
+                  "Z": 478.86180514340333,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-5712b0ec-cee2-400f-93b9-4467f21b1b8b",
+                "Transform": {
+                  "X": 2509.865234375,
+                  "Y": 102.0,
+                  "Z": 491.341552734375,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_1-1777263851032": {
+            "LastPosition": {
+              "X": 24.938053131103516,
+              "Y": 181.0,
+              "Z": -44.30238342285156,
+              "Pitch": 3.5762786865234375E-7,
+              "Yaw": 1.7011206150054932,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_5-1777262872217": {
+            "LastPosition": {
+              "X": 2483.324951171875,
+              "Y": 63.0,
+              "Z": 460.5018615722656,
+              "Pitch": -1.1920928955078125E-7,
+              "Yaw": 1.7241029739379883,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-10bc0c89-14b2-413b-b344-c877c4baf9d2",
+                "Transform": {
+                  "X": 2498.454833984375,
+                  "Y": 104.4013442993164,
+                  "Z": 467.47369384765625,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-3263c64f-a49d-4803-8d6d-ae60c9d9c5fe",
+                "Transform": {
+                  "X": 2496.064453125,
+                  "Y": 102.0,
+                  "Z": 469.2745361328125,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_4-1777264021965": {
+            "LastPosition": {
+              "X": 25.24687398703163,
+              "Y": 180.10000002384186,
+              "Z": -40.642699168463544,
+              "Pitch": 3.060138702392578,
+              "Yaw": -0.15209883451461792,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_4-1777263206824": {
+            "LastPosition": {
+              "X": 766.04638671875,
+              "Y": 64.0,
+              "Z": 2481.58544921875,
+              "Pitch": -1.1920928955078125E-7,
+              "Yaw": -2.598128080368042,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [
+              {
+                "MarkerId": "death-marker-fdb139fc-f238-4422-9277-ce2b4a81b02e",
+                "Transform": {
+                  "X": 778.0001220703125,
+                  "Y": 63.0,
+                  "Z": 2484.17919921875,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-4e86c313-a337-4286-b20f-7d1bdc4bf189",
+                "Transform": {
+                  "X": 771.3526611328125,
+                  "Y": 64.0,
+                  "Z": 2475.3017578125,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-3f1cae60-3255-4d31-bc8a-1f7641e97019",
+                "Transform": {
+                  "X": 767.604248046875,
+                  "Y": 64.0,
+                  "Z": 2479.901611328125,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              },
+              {
+                "MarkerId": "death-marker-e526c352-0a4f-439b-8ef7-4a280d832330",
+                "Transform": {
+                  "X": 766.0534057617188,
+                  "Y": 64.0,
+                  "Z": 2481.086669921875,
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "Day": 0
+              }
+            ],
+            "UserMarkers": []
+          },
+          "bh-level-run-level_2-1777258450457": {
+            "LastPosition": {
+              "X": 938.2461547851562,
+              "Y": 99.0,
+              "Z": 509.18865966796875,
+              "Pitch": 0.0,
+              "Yaw": 1.704906702041626,
+              "Roll": 0.0
+            },
+            "LastMovementStates": {
+              "Flying": false
+            },
+            "FirstSpawn": false,
+            "DeathPositions": [],
+            "UserMarkers": []
+          }
+        },
+        "DiscoveredZones": [
+          "Zone1_Spawn",
+          "Zone4_Tier5",
+          "Zone4_Shallow_Ocean_Tier5",
+          "Zone1_Shallow_Ocean",
+          "Zone1_Tier1",
+          "Zone2_Shore"
+        ],
+        "DiscoveredInstances": [],
+        "ReputationData": {},
+        "ActiveObjectiveUUIDs": []
+      },
+      "BlockPlacementOverride": false,
+      "HotbarManager": {
+        "SavedHotbars": [
+          {
+            "Id": "Simple",
+            "Capacity": 9,
+            "Items": {}
+          },
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "CurrentHotbar": 0
+      },
+      "GameMode": "Creative"
+    },
+    "Invulnerable": {},
+    "HitboxCollision": {
+      "HitboxCollisionConfigIndex": 1
+    },
+    "UniqueItemUsages": {
+      "UniqueItemUsed": []
+    },
+    "Instance": {},
+    "UUID": {
+      "UUID": {
+        "$binary": "tIHRQuotRYOZnNKfqeGNbQ==",
+        "$type": "04"
+      }
+    },
+    "EntityStats": {
+      "Version": 5,
+      "Stats": {
+        "Oxygen": {
+          "Id": "Oxygen",
+          "Value": 100.0
+        },
+        "Mana": {
+          "Id": "Mana",
+          "Value": 0.0
+        },
+        "Health": {
+          "Id": "Health",
+          "Value": 100.0
+        },
+        "GlidingActive": {
+          "Id": "GlidingActive",
+          "Value": 0.0
+        },
+        "Immunity": {
+          "Id": "Immunity",
+          "Value": 0.0
+        },
+        "SignatureCharges": {
+          "Id": "SignatureCharges",
+          "Value": 0.0
+        },
+        "Stamina": {
+          "Id": "Stamina",
+          "Value": 10.0
+        },
+        "Ammo": {
+          "Id": "Ammo",
+          "Value": 0.0
+        },
+        "Unknown": {
+          "Id": "Unknown",
+          "Value": 0.0
+        },
+        "SignatureEnergy": {
+          "Id": "SignatureEnergy",
+          "Value": 0.0
+        },
+        "DeployablePreview": {
+          "Id": "DeployablePreview",
+          "Value": 0.0
+        },
+        "StaminaRegenDelay": {
+          "Id": "StaminaRegenDelay",
+          "Value": 0.0
+        },
+        "MagicCharges": {
+          "Id": "MagicCharges",
+          "Value": 0.0
+        }
+      }
+    },
+    "ArmorInventory": {
+      "Inventory": {
+        "Id": "Simple",
+        "Capacity": 4,
+        "Items": {}
+      }
+    },
+    "HeadRotation": {
+      "Rotation": {
+        "Pitch": -2.8427649522200227E-4,
+        "Yaw": -1.6293983459472656,
+        "Roll": 0.0
+      }
+    }
+  }
+}

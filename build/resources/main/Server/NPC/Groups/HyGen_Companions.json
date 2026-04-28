@@ -1,0 +1,8 @@
+{
+  "IncludeRoles": [
+    "HyGen_Companion_Melee",
+    "HyGen_Companion_Vanguard",
+    "HyGen_Companion_Archer",
+    "HyGen_Companion_Support"
+  ]
+}

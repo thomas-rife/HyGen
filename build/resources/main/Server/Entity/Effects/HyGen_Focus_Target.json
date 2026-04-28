@@ -1,0 +1,10 @@
+{
+  "Name": "hygen.effect.focus_target",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#ffeb3b",
+    "EntityTopTint": "#fff176"
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete"
+}

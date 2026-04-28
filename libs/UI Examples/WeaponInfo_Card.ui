@@ -1,0 +1,49 @@
+$C = "../Common.ui";
+
+Button {
+  Anchor: (Width: 145, Bottom: 10, Right: 10);
+  Padding: (Full: 13);
+  Background: #2d2d2d;
+  LayoutMode: Top;
+  TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+  Style: (
+    Hovered: (
+      Background: #3a3a3a // Placeholder: Will be overridden by Java code dynamically
+    ),
+    Pressed: (
+      Background: #454545
+    )
+  );
+
+  ItemIcon #ItemIcon {
+    Anchor: (Width: 72, Height: 72, Bottom: 8);
+    Visible: true;
+  }
+
+  Label #ItemName {
+    Style: (
+      FontSize: 14,
+      RenderBold: true,
+      TextColor: #e0e0e0
+    );
+    Anchor: (Bottom: 5);
+  }
+
+  Label #DamageHeader {
+    Style: (
+      FontSize: 11,
+      TextColor: #999999
+    );
+    Anchor: (Bottom: 2);
+  }
+
+  Label #DamageLabel {
+    Style: (
+      FontSize: 12,
+      RenderBold: true,
+      TextColor: #ff6b6b
+    );
+    Anchor: (Bottom: 0);
+  }
+
+}

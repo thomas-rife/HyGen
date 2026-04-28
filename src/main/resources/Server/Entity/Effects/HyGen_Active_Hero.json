@@ -1,0 +1,10 @@
+{
+  "Name": "hygen.effect.active_hero",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#00ff88",
+    "EntityTopTint": "#ffffff"
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete"
+}

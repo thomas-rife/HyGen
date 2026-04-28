@@ -1,0 +1,55 @@
+// Simple Storage Slot - Individual item slot in the storage grid
+// Matches the in-game inventory slot styling (74x74 with 64x64 icon)
+
+$C = "../Common.ui";
+
+Button {
+  // Match in-game slot size: 74px with 2px spacing
+  Anchor: (Width: 74, Height: 74, Right: 2, Bottom: 2);
+  Style: (
+    Default: (Background: (TexturePath: "Slot.png")),
+    Hovered: (Background: (TexturePath: "SlotHighlight.png")),
+    Pressed: (Background: (TexturePath: "SlotSelected.png"))
+  );
+  TooltipText: "";
+  TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+  
+  // Item display area using ItemSlot for proper item rendering (fills slot for quality background)
+  ItemSlot #SlotItem {
+    Anchor: (Full: 0);
+    ShowQualityBackground: true;
+  }
+  
+  // Quantity label (bottom-right corner overlay)
+  Label #QuantityLabel {
+    Text: "0";
+    Style: (
+      FontSize: 14,
+      TextColor: #ffffff,
+      HorizontalAlignment: End,
+      VerticalAlignment: End,
+      RenderBold: true
+    );
+    Anchor: (Right: 6, Bottom: 4);
+  }
+  
+  // Hotbar slot number with dark background (top-left corner, hidden by default)
+  Group #HotbarNumberBg {
+    Visible: false;
+    Anchor: (Left: 2, Top: 2, Width: 16, Height: 16);
+    Background: (Color: #171717);
+    LayoutMode: Middle;
+    
+    Label #HotbarNumber {
+      Text: "";
+      Style: (
+        FontSize: 11,
+        TextColor: #96a9be,
+        HorizontalAlignment: Center,
+        VerticalAlignment: Center,
+        RenderBold: true
+      );
+      Anchor: (Full: 0);
+    }
+  }
+}

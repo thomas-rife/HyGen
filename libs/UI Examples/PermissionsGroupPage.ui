@@ -1,0 +1,344 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@IconAdd = "../Icons/perm_add.png";
+@IconDelete = "../Icons/perm_delete.png";
+@IconMore = "../Icons/perm_more_horizontal.png";
+@IconChevronLeft = "../Icons/perm_chevron_left.png";
+@IconChevronRight = "../Icons/perm_chevron_right.png";
+
+@IconButton = Button {
+  @Icon = "";
+  @Anchor = Anchor();
+  @Sounds = $Sounds.@ButtonsLight;
+
+  Style: (
+    Default: (Background: (TexturePath: @Icon, Color: #ffffff(0.9))),
+    Hovered: (Background: (TexturePath: @Icon, Color: #ffffff)),
+    Pressed: (Background: (TexturePath: @Icon, Color: #ffffff(0.75))),
+    Sounds: @Sounds
+  );
+  Anchor: (...@Anchor, Width: 28, Height: 28);
+};
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    @CloseButton = true;
+    Anchor: (Width: 900, Height: 720);
+
+    #Title {
+      $C.@Title #TitleLabel {
+        @Text = "Group Settings";
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 16);
+
+      Label #SubtitleLabel {
+        Anchor: (Bottom: 12, Horizontal: 6);
+        Style: (...$C.@DefaultLabelStyle, Wrap: true, FontSize: 14, TextColor: #9aa9b4);
+        Text: "Manage permissions and members for this group.";
+      }
+
+      Group #HeaderRow {
+        LayoutMode: Left;
+        Anchor: (Bottom: 12, Height: 30);
+
+        Label {
+          Text: "Group";
+          Anchor: (Width: 80);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+        }
+
+        Label #GroupNameLabel {
+          Anchor: (Width: 300);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center, TextColor: #c7d6df);
+          Text: "";
+        }
+      }
+
+      Group #Columns {
+        LayoutMode: Left;
+        Anchor: (Height: 560);
+
+        Group #PermissionPanel {
+          LayoutMode: Top;
+          Anchor: (Width: 420, Height: 560);
+          Background: (TexturePath: "../Common/ContainerPanelPatch.png", Border: 4);
+          Padding: (Full: 12);
+
+          Label #PermissionTitle {
+            Text: "Permissions";
+            Anchor: (Bottom: 4);
+            Style: (...$C.@DefaultLabelStyle, RenderBold: true, FontSize: 15, TextColor: #c7d6df);
+          }
+
+          Label #PermissionHint {
+            Anchor: (Bottom: 10);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5, Wrap: true);
+            Text: "Add or remove permissions for this group.";
+          }
+
+          Group #PermissionAddRow {
+            LayoutMode: Left;
+            Anchor: (Bottom: 8, Height: 34);
+
+            Label {
+              Text: "Add";
+              Anchor: (Width: 60);
+              Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+            }
+
+            $C.@TextField #PermissionInput {
+              Anchor: (Width: 220);
+              PlaceholderText: "permission.node";
+            }
+
+            @IconButton #AddPermissionButton { @Icon = @IconAdd; @Anchor = (Left: 8, Top: 3); }
+            @IconButton #PermissionBrowseButton { @Icon = @IconMore; @Anchor = (Left: 6, Top: 3); }
+          }
+
+          Label #PermissionEmptyLabel {
+            Anchor: (Bottom: 6);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+            Text: "No permissions assigned.";
+          }
+
+          Label #PermissionOverflowLabel {
+            Anchor: (Bottom: 6);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+            Text: "Showing the first 12 permissions.";
+          }
+
+          Group #PermissionListScroller {
+            LayoutMode: TopScrolling;
+            ScrollbarStyle: $C.@DefaultScrollbarStyle;
+            Anchor: (Height: 320);
+
+            Group #PermissionRow0 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PermissionLabel0 {
+                Anchor: (Width: 300);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "permission.node";
+              }
+
+              @IconButton #PermissionRemove0 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow1 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel1 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove1 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow2 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel2 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove2 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow3 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel3 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove3 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow4 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel4 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove4 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow5 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel5 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove5 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow6 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel6 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove6 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow7 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel7 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove7 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow8 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel8 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove8 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow9 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel9 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove9 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow10 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel10 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove10 { @Icon = @IconDelete; }
+            }
+
+            Group #PermissionRow11 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+              Label #PermissionLabel11 { Anchor: (Width: 300); Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center); Text: "permission.node"; }
+              @IconButton #PermissionRemove11 { @Icon = @IconDelete; }
+            }
+          }
+        }
+
+        Group #MembersPanel {
+          LayoutMode: Top;
+          Anchor: (Left: 12, Width: 420, Height: 560);
+          Background: (TexturePath: "../Common/ContainerPanelPatch.png", Border: 4);
+          Padding: (Full: 12);
+
+          Label #MembersTitle {
+            Text: "Members";
+            Anchor: (Bottom: 4);
+            Style: (...$C.@DefaultLabelStyle, RenderBold: true, FontSize: 15, TextColor: #c7d6df);
+          }
+
+          Label #MembersHint {
+            Anchor: (Bottom: 10);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5, Wrap: true);
+            Text: "Add or remove online players from this group.";
+          }
+
+          Group #AddMemberSection {
+            LayoutMode: Top;
+            Anchor: (Bottom: 16);
+
+            Label {
+              Text: "Add member";
+              Anchor: (Bottom: 6);
+              Style: (...$C.@DefaultLabelStyle, RenderBold: true, FontSize: 13, TextColor: #c7d6df);
+            }
+
+            Group {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label {
+                Text: "Filter";
+                Anchor: (Width: 70);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+              }
+
+              $C.@TextField #AddPlayerFilterInput {
+                Anchor: (Width: 200);
+                PlaceholderText: "Player name";
+              }
+
+              @IconButton #AddPlayerFilterApplyButton { @Icon = @IconChevronRight; @Anchor = (Left: 8, Top: 1); }
+            }
+
+            Group {
+              LayoutMode: Left;
+              Anchor: (Bottom: 8, Height: 35);
+
+              Label {
+                Text: "Player";
+                Anchor: (Width: 70);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+              }
+
+              Group #AddPlayerInput {
+                FlexWeight: 1;
+                $C.@DropdownBox #Input { Anchor: (Width: 200, Height: $C.@DropdownBoxHeight); }
+              }
+
+              @IconButton #AddPlayerButton { @Icon = @IconAdd; @Anchor = (Left: 8, Top: 3); }
+            }
+          }
+
+          Group #RemoveMemberSection {
+            LayoutMode: Top;
+            Anchor: (Bottom: 0);
+
+            Label {
+              Text: "Remove member";
+              Anchor: (Bottom: 6);
+              Style: (...$C.@DefaultLabelStyle, RenderBold: true, FontSize: 13, TextColor: #c7d6df);
+            }
+
+            Group {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label {
+                Text: "Filter";
+                Anchor: (Width: 70);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+              }
+
+              $C.@TextField #RemovePlayerFilterInput {
+                Anchor: (Width: 200);
+                PlaceholderText: "Player name";
+              }
+
+              @IconButton #RemovePlayerFilterApplyButton { @Icon = @IconChevronRight; @Anchor = (Left: 8, Top: 1); }
+            }
+
+            Group {
+              LayoutMode: Left;
+              Anchor: (Bottom: 0, Height: 35);
+
+              Label {
+                Text: "Player";
+                Anchor: (Width: 70);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+              }
+
+              Group #RemovePlayerInput {
+                FlexWeight: 1;
+                $C.@DropdownBox #Input { Anchor: (Width: 200, Height: $C.@DropdownBoxHeight); }
+              }
+
+              @IconButton #RemovePlayerButton { @Icon = @IconDelete; @Anchor = (Left: 8, Top: 3); }
+            }
+          }
+        }
+      }
+
+      Group #FooterRow {
+        LayoutMode: Left;
+        Anchor: (Top: 6, Height: 30);
+
+        @IconButton #BackButton { @Icon = @IconChevronLeft; }
+
+        Label {
+          Text: "Back";
+          Anchor: (Left: 6);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

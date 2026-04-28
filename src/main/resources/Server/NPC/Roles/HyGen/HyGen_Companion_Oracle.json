@@ -1,0 +1,64 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Tuluk_Fisherman",
+    "DropList": "Empty",
+    "DefaultPlayerAttitude": "Friendly",
+    "AttitudeGroup": "HyGen_Companion",
+    "Weapons": ["Weapon_Staff_Mithril"],
+    "OffHand": [],
+    "DefaultOffHandSlot": -1,
+    "NighttimeOffhandSlot": -1,
+    "WakingPeriod": [0.0, 24.0],
+    "BedBlockSet": "",
+    "ApplySeparation": true,
+    "ViewRange": 96,
+    "ViewSector": 360,
+    "AbsoluteDetectionRange": 96,
+    "AlertedRange": 96,
+    "HearingRange": 96,
+    "WanderRadius": 7,
+    "LeashDistance": 96,
+    "HardLeashDistance": 160,
+    "Attack": "Skeleton_Mage_Wand_Corruption_Orb",
+    "AttackDistance": 15,
+    "DesiredAttackDistanceRange": [9, 14],
+    "AttackPauseRange": [2.0, 2.0],
+    "CombatBehaviorDistance": 96,
+    "CombatBackOffAfterAttack": false,
+    "CombatBackOffDistanceRange": [5, 7],
+    "CombatStrafeWeight": 10,
+    "CombatDirectWeight": 1,
+    "CombatFleeIfTooCloseDistance": 4,
+    "TargetRange": 96,
+    "ChaseRelativeSpeed": 0.62,
+    "CombatMovingRelativeSpeed": 0.45,
+    "MaxSpeed": 3.4,
+    "MaxHealth": 90,
+    "DisableDamageGroups": ["Self"],
+    "_InteractionVars": {
+      "Melee_Damage": {
+        "Interactions": [
+          {
+            "Parent": "NPC_Attack_Melee_Damage",
+            "DamageCalculator": {
+              "BaseDamage": {
+                "Physical": 3
+              }
+            }
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.HyGen_Companion_Oracle.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

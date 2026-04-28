@@ -1,0 +1,21 @@
+$C = "../Common.ui";
+
+Group {
+  Anchor: (Bottom: 15, Top: 10);
+  LayoutMode: Left;
+  Padding: (Left: 5);
+
+  Group {
+    Anchor: (Width: 4, Height: 20);
+    Background: #4a90e2;
+  }
+
+  Label #SectionTitle {
+    Anchor: (Left: 10);
+    Style: (
+      FontSize: 16,
+      RenderBold: true,
+      TextColor: #4a90e2
+    );
+  }
+}

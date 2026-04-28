@@ -1,0 +1,17 @@
+$C = "../Common.ui";
+
+Group {
+  Anchor: (Width: 80, Height: 100);
+  LayoutMode: Top;
+  Padding: (Full: 5);
+
+  ItemIcon #IngredientIcon {
+    Anchor: (Width: 64, Height: 64);
+  }
+
+  Label #IngredientQuantity {
+    Style: (
+      FontSize: 12
+    );
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "DisplayName": "AI Prefab World",
+  "Seed": 0,
+  "WorldGenProvider": {
+    "Type": "AIPrefab",
+    "ConfigFile": "ai-prefab-config.json"
+  },
+  "CanSaveChunks": true,
+  "SaveNewChunks": true,
+  "Ticking": true,
+  "BlockTicking": false,
+  "PvpEnabled": false,
+  "FallDamageEnabled": true
+}

@@ -1,0 +1,180 @@
+package com.hypixel.hytale.builtin.hytalegenerator.patterns;
+
+import com.hypixel.hytale.builtin.hytalegenerator.bounds.Bounds3i;
+import com.hypixel.hytale.builtin.hytalegenerator.math.Calculator;
+import com.hypixel.hytale.codec.Codec;
+import com.hypixel.hytale.codec.codecs.EnumCodec;
+import com.hypixel.hytale.math.vector.Vector3i;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.Nonnull;
+import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
+
+public class SurfacePattern extends Pattern {
+   @Nonnull
+   private final Pattern wallPattern;
+   @Nonnull
+   private final Pattern originPattern;
+   @Nonnull
+   private final List<Vector3i> surfacePositions;
+   @Nonnull
+   private final List<Vector3i> originPositions;
+   @Nonnull
+   private final Bounds3i bounds_voxelGrid;
+   @Nonnull
+   private final Vector3i rChildPosition;
+   @Nonnull
+   private final Pattern.Context rChildContext;
+
+   public SurfacePattern(
+      @Nonnull Pattern surfacePattern,
+      @Nonnull Pattern originPattern,
+      double surfaceRadius,
+      double originRadius,
+      @Nonnull SurfacePattern.Facing facing,
+      int surfaceGap,
+      int originGap
+   ) {
+      this.wallPattern = surfacePattern;
+      this.originPattern = originPattern;
+      this.rChildPosition = new Vector3i();
+      this.rChildContext = new Pattern.Context();
+      int surfaceY = -1 - surfaceGap;
+      this.surfacePositions = new ArrayList<>(1);
+
+      for (int x = -((int)surfaceRadius) - 1; x <= (int)surfaceRadius + 1; x++) {
+         for (int z = -((int)surfaceRadius) - 1; z <= (int)surfaceRadius + 1; z++) {
+            if (!(Calculator.distance(x, z, 0.0, 0.0) > surfaceRadius)) {
+               Vector3i position = new Vector3i(x, surfaceY, z);
+               this.surfacePositions.add(position);
+            }
+         }
+      }
+
+      int originY = originGap;
+      this.originPositions = new ArrayList<>(1);
+
+      for (int x = -((int)originRadius) - 1; x <= (int)originRadius + 1; x++) {
+         for (int zx = -((int)originRadius) - 1; zx <= (int)originRadius + 1; zx++) {
+            if (!(Calculator.distance(x, zx, 0.0, 0.0) > originRadius)) {
+               Vector3i position = new Vector3i(x, originY, zx);
+               this.originPositions.add(position);
+            }
+         }
+      }
+
+      for (Vector3i pos : this.surfacePositions) {
+         this.applyFacing(pos, facing);
+      }
+
+      for (Vector3i pos : this.originPositions) {
+         this.applyFacing(pos, facing);
+      }
+
+      Bounds3i stampBounds_voxelGrid = surfacePattern.getBounds_voxelGrid().clone();
+      if (!this.surfacePositions.isEmpty()) {
+         this.bounds_voxelGrid = stampBounds_voxelGrid.clone().offset(this.surfacePositions.getFirst());
+      } else {
+         this.bounds_voxelGrid = new Bounds3i();
+      }
+
+      for (Vector3i pos : this.surfacePositions) {
+         this.bounds_voxelGrid.encompass(stampBounds_voxelGrid.clone().offset(pos));
+      }
+
+      stampBounds_voxelGrid.assign(originPattern.getBounds_voxelGrid());
+
+      for (Vector3i pos : this.originPositions) {
+         this.bounds_voxelGrid.encompass(stampBounds_voxelGrid.clone().offset(pos));
+      }
+   }
+
+   @Override
+   public boolean matches(@Nonnull Pattern.Context context) {
+      this.rChildPosition.assign(context.position);
+      this.rChildContext.assign(context);
+      this.rChildContext.position = this.rChildPosition;
+
+      for (Vector3i pos : this.originPositions) {
+         this.rChildPosition.assign(pos).add(context.position);
+         if (!this.originPattern.matches(this.rChildContext)) {
+            return false;
+         }
+      }
+
+      for (Vector3i posx : this.surfacePositions) {
+         this.rChildPosition.assign(posx).add(context.position);
+         if (!this.wallPattern.matches(this.rChildContext)) {
+            return false;
+         }
+      }
+
+      return true;
+   }
+
+   private void applyFacing(@Nonnull Vector3i pos, @Nonnull SurfacePattern.Facing facing) {
+      switch (facing) {
+         case D:
+            this.toD(pos);
+            break;
+         case E:
+            this.toE(pos);
+            break;
+         case W:
+            this.toW(pos);
+            break;
+         case S:
+            this.toS(pos);
+            break;
+         case N:
+            this.toN(pos);
+      }
+   }
+
+   private void toD(@Nonnull Vector3i pos) {
+      pos.y = -pos.y;
+   }
+
+   private void toN(@Nonnull Vector3i pos) {
+      int y = pos.y;
+      pos.y = pos.z;
+      pos.z = y;
+   }
+
+   private void toS(@Nonnull Vector3i pos) {
+      this.toN(pos);
+      pos.z = -pos.z;
+   }
+
+   private void toW(@Nonnull Vector3i pos) {
+      int y = pos.y;
+      pos.y = -pos.x;
+      pos.x = y;
+   }
+
+   private void toE(@Nonnull Vector3i pos) {
+      this.toW(pos);
+      pos.x = -pos.x;
+   }
+
+   @NonNullDecl
+   @Override
+   public Bounds3i getBounds_voxelGrid() {
+      return this.bounds_voxelGrid;
+   }
+
+   public static enum Facing {
+      U,
+      D,
+      E,
+      W,
+      S,
+      N;
+
+      @Nonnull
+      public static Codec<SurfacePattern.Facing> CODEC = new EnumCodec<>(SurfacePattern.Facing.class, EnumCodec.EnumStyle.LEGACY);
+
+      private Facing() {
+      }
+   }
+}

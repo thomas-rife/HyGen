@@ -1,0 +1,815 @@
+{
+  "levels": [
+    {
+      "levelId": "level_1",
+      "levelName": "Level 1",
+      "mapWorldName": "map1",
+      "mapDisplayName": "Map 1",
+      "orderIndex": 1,
+      "bossBattle": false,
+      "isEndlessAi": false,
+      "recommendedPower": 1,
+      "maxPartySize": 4,
+      "playerSpawn": {
+        "position": {
+          "x": 27.07046127319336,
+          "y": 181.0,
+          "z": -42.63945388793945
+        },
+        "yaw": 3.0601387,
+        "pitch": -0.15209883,
+        "roll": 0.0
+      },
+      "enemySpawnLocations": [
+        {
+          "x": 156.0,
+          "y": 122.0,
+          "z": 136.0
+        }
+      ],
+      "waves": [
+        {
+          "waveNumber": 1,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 2500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 24.811503982543947,
+                  "y": 181.0,
+                  "z": -10.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 2,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 24.211503982543945,
+                  "y": 181.0,
+                  "z": -11.701930236816406
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 4,
+              "spawn": {
+                "position": {
+                  "x": 30.411503982543945,
+                  "y": 181.0,
+                  "z": -14.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 3,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 2500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 16,
+              "spawn": {
+                "position": {
+                  "x": 24.811503982543947,
+                  "y": 181.0,
+                  "z": -10.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "levelId": "level_2",
+      "levelName": "Level 2",
+      "mapWorldName": "map2",
+      "mapDisplayName": "Map 2",
+      "overviewCamera": true,
+      "orderIndex": 2,
+      "bossBattle": false,
+      "isEndlessAi": false,
+      "recommendedPower": 1,
+      "maxPartySize": 1,
+      "playerSpawn": {
+        "position": {
+          "x": 938.0,
+          "y": 115.0,
+          "z": 506.0
+        },
+        "yaw": 0.0,
+        "pitch": 0.0,
+        "roll": 0.0
+      },
+      "enemySpawnLocations": [
+        {
+          "x": 946.0,
+          "y": 115.0,
+          "z": 506.0
+        }
+      ],
+      "waves": [
+        {
+          "waveNumber": 1,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 2500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 942.0,
+                  "y": 115.0,
+                  "z": 506.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 2,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 942.0,
+                  "y": 115.0,
+                  "z": 506.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 4,
+              "spawn": {
+                "position": {
+                  "x": 944.0,
+                  "y": 115.0,
+                  "z": 508.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 3,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 942.0,
+                  "y": 115.0,
+                  "z": 506.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 4,
+              "spawn": {
+                "position": {
+                  "x": 940.0,
+                  "y": 115.0,
+                  "z": 510.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "levelId": "level_3",
+      "levelName": "Level 3",
+      "mapWorldName": "map2",
+      "mapDisplayName": "Map 2",
+      "overviewCamera": true,
+      "orderIndex": 3,
+      "bossBattle": true,
+      "isEndlessAi": false,
+      "recommendedPower": 1,
+      "maxPartySize": 1,
+      "playerSpawn": {
+        "position": {
+          "x": 1691.0,
+          "y": 130.0,
+          "z": 2783.0
+        },
+        "yaw": 0.0,
+        "pitch": 0.0,
+        "roll": 0.0
+      },
+      "enemySpawnLocations": [
+        {
+          "x": 1699.0,
+          "y": 130.0,
+          "z": 2783.0
+        }
+      ],
+      "waves": [
+        {
+          "waveNumber": 1,
+          "bossWave": true,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 2500,
+          "enemies": [
+            {
+              "npcRoleId": "Eye_Void",
+              "count": 1,
+              "spawn": {
+                "position": {
+                  "x": 1699.0,
+                  "y": 130.0,
+                  "z": 2783.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "levelId": "level_4",
+      "levelName": "Level 4",
+      "mapWorldName": "map1",
+      "mapDisplayName": "Map 1",
+      "overviewCamera": true,
+      "orderIndex": 4,
+      "bossBattle": false,
+      "isEndlessAi": false,
+      "recommendedPower": 1,
+      "maxPartySize": 1,
+      "playerSpawn": {
+        "position": {
+          "x": 27.07046127319336,
+          "y": 181.0,
+          "z": -42.63945388793945
+        },
+        "yaw": 3.0601387,
+        "pitch": -0.15209883,
+        "roll": 0.0
+      },
+      "enemySpawnLocations": [
+        {
+          "x": 24.811503982543947,
+          "y": 181.0,
+          "z": -10.901930236816407
+        }
+      ],
+      "waves": [
+        {
+          "waveNumber": 1,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 24.811503982543947,
+                  "y": 181.0,
+                  "z": -10.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 4,
+              "spawn": {
+                "position": {
+                  "x": 30.411503982543945,
+                  "y": 181.0,
+                  "z": -14.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 2,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 21.811503982543947,
+                  "y": 181.0,
+                  "z": -13.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 27.811503982543947,
+                  "y": 181.0,
+                  "z": -10.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 3,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 12,
+              "spawn": {
+                "position": {
+                  "x": 24.811503982543947,
+                  "y": 181.0,
+                  "z": -10.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 6,
+              "spawn": {
+                "position": {
+                  "x": 30.411503982543945,
+                  "y": 181.0,
+                  "z": -14.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 4,
+              "spawn": {
+                "position": {
+                  "x": 21.811503982543947,
+                  "y": 181.0,
+                  "z": -13.901930236816407
+                },
+                "yaw": 0.0039686887,
+                "pitch": -0.4508982,
+                "roll": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "levelId": "level_5",
+      "levelName": "Level 5",
+      "mapWorldName": "map2",
+      "mapDisplayName": "Map 2",
+      "overviewCamera": true,
+      "orderIndex": 5,
+      "bossBattle": false,
+      "isEndlessAi": false,
+      "recommendedPower": 1,
+      "maxPartySize": 1,
+      "playerSpawn": {
+        "position": {
+          "x": 2502.0,
+          "y": 139.0,
+          "z": 466.0
+        },
+        "yaw": 0.0,
+        "pitch": 0.0,
+        "roll": 0.0
+      },
+      "enemySpawnLocations": [
+        {
+          "x": 2512.0,
+          "y": 139.0,
+          "z": 466.0
+        }
+      ],
+      "waves": [
+        {
+          "waveNumber": 1,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 464.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 6,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 468.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 2,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 464.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 6,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 468.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 3,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 464.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 468.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 4,
+              "spawn": {
+                "position": {
+                  "x": 2512.0,
+                  "y": 139.0,
+                  "z": 472.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "levelId": "level_6",
+      "levelName": "Final Level",
+      "mapWorldName": "map2",
+      "mapDisplayName": "Map 2",
+      "overviewCamera": true,
+      "orderIndex": 6,
+      "bossBattle": false,
+      "isEndlessAi": false,
+      "recommendedPower": 1,
+      "maxPartySize": 1,
+      "playerSpawn": {
+        "position": {
+          "x": 2505.0,
+          "y": 117.0,
+          "z": 469.0
+        },
+        "yaw": 0.0,
+        "pitch": 0.0,
+        "roll": 0.0
+      },
+      "enemySpawnLocations": [
+        {
+          "x": 2513.0,
+          "y": 117.0,
+          "z": 469.0
+        }
+      ],
+      "waves": [
+        {
+          "waveNumber": 1,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 2509.0,
+                  "y": 117.0,
+                  "z": 469.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 3,
+              "spawn": {
+                "position": {
+                  "x": 2511.0,
+                  "y": 117.0,
+                  "z": 471.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 2,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 2507.0,
+                  "y": 117.0,
+                  "z": 473.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 2510.0,
+                  "y": 117.0,
+                  "z": 467.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 3,
+              "spawn": {
+                "position": {
+                  "x": 2511.0,
+                  "y": 117.0,
+                  "z": 471.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 3,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 3500,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 10,
+              "spawn": {
+                "position": {
+                  "x": 2509.0,
+                  "y": 117.0,
+                  "z": 469.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 3,
+              "spawn": {
+                "position": {
+                  "x": 2511.0,
+                  "y": 117.0,
+                  "z": 471.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 6,
+              "spawn": {
+                "position": {
+                  "x": 2507.0,
+                  "y": 117.0,
+                  "z": 473.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "waveNumber": 4,
+          "bossWave": false,
+          "startDelayMs": 500,
+          "interWaveDelayMs": 4000,
+          "enemies": [
+            {
+              "npcRoleId": "HyGen_Enemy_Zombie",
+              "count": 11,
+              "spawn": {
+                "position": {
+                  "x": 2509.0,
+                  "y": 117.0,
+                  "z": 469.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Archer",
+              "count": 3,
+              "spawn": {
+                "position": {
+                  "x": 2511.0,
+                  "y": 117.0,
+                  "z": 471.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            },
+            {
+              "npcRoleId": "HyGen_Enemy_Diver",
+              "count": 8,
+              "spawn": {
+                "position": {
+                  "x": 2507.0,
+                  "y": 117.0,
+                  "z": 473.0
+                },
+                "yaw": 0.0,
+                "pitch": 0.0,
+                "roll": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

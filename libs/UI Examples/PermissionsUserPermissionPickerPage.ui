@@ -1,0 +1,188 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@IconChevronLeft = "../Icons/perm_chevron_left.png";
+
+@IconButton = Button {
+  @Icon = "";
+  @Anchor = Anchor();
+  @Sounds = $Sounds.@ButtonsLight;
+
+  Style: (
+    Default: (Background: (TexturePath: @Icon, Color: #ffffff(0.9))),
+    Hovered: (Background: (TexturePath: @Icon, Color: #ffffff)),
+    Pressed: (Background: (TexturePath: @Icon, Color: #ffffff(0.75))),
+    Sounds: @Sounds
+  );
+  Anchor: (...@Anchor, Width: 28, Height: 28);
+};
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    @CloseButton = true;
+    Anchor: (Width: 760, Height: 640);
+
+    #Title {
+      $C.@Title #TitleLabel {
+        @Text = "Select Permission";
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 16);
+
+      Label #SubtitleLabel {
+        Anchor: (Bottom: 12, Horizontal: 6);
+        Style: (...$C.@DefaultLabelStyle, Wrap: true, FontSize: 14, TextColor: #9aa9b4);
+        Text: "Pick a permission to add to this player.";
+      }
+
+      Group #HeaderRow {
+        LayoutMode: Left;
+        Anchor: (Bottom: 12, Height: 30);
+
+        Label {
+          Text: "Player";
+          Anchor: (Width: 80);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+        }
+
+        Label #PlayerNameLabel {
+          Anchor: (Width: 200);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center, TextColor: #c7d6df);
+          Text: "";
+        }
+
+        Label #PlayerUuidLabel {
+          Anchor: (Width: 320);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center, FontSize: 11, TextColor: #8fa3b5);
+          Text: "";
+        }
+      }
+
+      Group #FilterRow {
+        LayoutMode: Left;
+        Anchor: (Bottom: 10, Height: 34);
+
+        Label {
+          Text: "Filter";
+          Anchor: (Width: 80);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+        }
+
+        $C.@TextField #FilterInput {
+          Anchor: (Width: 320);
+          PlaceholderText: "permission.node";
+        }
+
+        $C.@SmallSecondaryTextButton #FilterApplyButton {
+          @Anchor = (Left: 8, Width: 90, Height: 26, Top: 2);
+          Text: "Apply";
+        }
+      }
+
+      Group #PermissionPanel {
+        LayoutMode: Top;
+        Anchor: (Bottom: 12);
+        Background: (TexturePath: "../Common/ContainerPanelPatch.png", Border: 4);
+        Padding: (Full: 12);
+
+        Label #PermissionEmptyLabel {
+          Anchor: (Bottom: 6);
+          Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+          Text: "No permissions found.";
+        }
+
+        Label #PermissionOverflowLabel {
+          Anchor: (Bottom: 6);
+          Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+          Text: "Showing the first 12 permissions.";
+        }
+
+        Group #PermissionListScroller {
+          LayoutMode: TopScrolling;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Anchor: (Height: 320);
+
+          Group #PermissionRow0 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick0 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow1 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick1 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow2 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick2 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow3 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick3 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow4 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick4 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow5 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick5 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow6 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick6 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow7 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick7 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow8 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick8 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow9 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick9 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow10 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick10 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+
+          Group #PermissionRow11 {
+            Anchor: (Bottom: 6, Height: 32);
+            $C.@SmallSecondaryTextButton #PermissionPick11 { @Anchor = (Width: 520); Text: "permission.node"; }
+          }
+        }
+      }
+
+      Group #FooterRow {
+        LayoutMode: Left;
+        Anchor: (Top: 6, Height: 30);
+
+        @IconButton #BackButton { @Icon = @IconChevronLeft; }
+
+        Label {
+          Text: "Back";
+          Anchor: (Left: 6);
+          Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

@@ -1,0 +1,41 @@
+Group #LevelEditorHud {
+  Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+
+  Group #LeftText {
+    Anchor: (Top: 10, Left: 10, Width: 560, Height: 360);
+    LayoutMode: Top;
+    Label #L1 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 14, TextColor: #dce7f7, RenderBold: true, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L2 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L3 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L4 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L5 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L6 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L7 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L8 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L9 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L10 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L11 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L12 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L13 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+    Label #L14 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #dce7f7, HorizontalAlignment: Start, VerticalAlignment: Center); }
+  }
+
+  Group #RightText {
+    Anchor: (Top: 10, Right: 10, Width: 560, Height: 360);
+    LayoutMode: Top;
+    Label #R1 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 14, TextColor: #f5dcaf, RenderBold: true, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R2 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R3 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R4 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R5 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R6 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R7 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R8 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R9 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R10 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R11 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R12 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R13 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+    Label #R14 { Text: ""; Anchor: (Height: 24); Style: (FontSize: 13, TextColor: #f5dcaf, HorizontalAlignment: End, VerticalAlignment: Center); }
+  }
+}

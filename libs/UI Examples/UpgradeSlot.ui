@@ -1,0 +1,65 @@
+// Upgrade Slot UI Template
+// Used in the Storage Info panel for upgrade slots
+
+$C = "../Common.ui";
+
+@SlotSize = 74;
+
+// Single upgrade slot with item requirement display
+Button #UpgradeSlot {
+  Anchor: (Width: @SlotSize, Height: @SlotSize, Right: 2, Bottom: 2);
+  Background: (TexturePath: "Slot.png");
+  
+  // Dimmed overlay when player doesn't have the required item
+  Group #DimmedOverlay {
+    Anchor: (Full: 0);
+    Background: (Color: #000000(0.5));
+    Visible: true;
+  }
+  
+  // Item icon display (for specific item IDs)
+  ItemSlot #RequiredItem {
+    Anchor: (Width: 64, Height: 64);
+    Visible: true;
+  }
+  
+  // Resource type icon display (for resource types)
+  Group #ResourceTypeIcon {
+    Anchor: (Width: 64, Height: 64);
+    Visible: false;
+  }
+  
+  // Progress display (current/required)
+  Group #ProgressContainer {
+    Anchor: (Bottom: 4, Left: 4, Right: 4, Height: 16);
+    Background: (Color: #000000(0.6));
+    LayoutMode: Middle;
+    
+    Label #ProgressLabel {
+      Text: "0/64";
+      Style: (FontSize: 11, TextColor: #b4c8c9, Alignment: Center, VerticalAlignment: Center, RenderBold: true);
+      Anchor: (Full: 0);
+    }
+  }
+  
+  // Completed checkmark overlay
+  Group #CompletedOverlay {
+    Anchor: (Full: 0);
+    Background: (Color: #2d8a4e(0.4));
+    Visible: false;
+    LayoutMode: Middle;
+    
+    // Checkmark icon - create CheckMark.png at 32x32 pixels in Common/UI/Custom/Pages/
+    Group #CheckMark {
+      Anchor: (Width: 32, Height: 32);
+      Background: (TexturePath: "CheckMark.png");
+    }
+  }
+  
+  // Highlight when clickable (player has items)
+  Group #ClickableHighlight {
+    Anchor: (Full: 0);
+    Background: (TexturePath: "SlotHighlight.png");
+    Visible: false;
+  }
+}

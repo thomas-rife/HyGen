@@ -1,0 +1,361 @@
+// Pie Clicker - A Cookie Clicker-style idle game for Hytale!
+
+Group #PieClickerRoot {
+    Anchor: (Full: 0);
+    
+    // Dark overlay background
+    Group #Overlay {
+        Anchor: (Full: 0);
+        Background: #000000(0.75);
+    }
+    
+    // Main game window
+    Group #GameWindow {
+        Anchor: (Width: 720, Height: 520);
+        Background: (Color: #0a1520);
+        LayoutMode: Top;
+        
+        // Title bar - pie filling color with speckles and whipped cream
+        Group #TitleBar {
+            Anchor: (Height: 45);
+            Background: (Color: #e88a10);
+            
+            // Speckles on the banner (same color as pie speckles)
+            Label { Text: ". *  .  *   .  *  . *   .  *   .  *  .   *  . *  .  *   .  *  . "; Style: (FontSize: 7, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Full: 0, Top: 2); }
+            Label { Text: "  *  .   *  .  *   .  *  .  *   . *  .  *  .   *  .  *   . *  ."; Style: (FontSize: 7, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Full: 0, Top: 10); }
+            Label { Text: ".  *   .  *  . *  .   *  .  *  .  *   .  *  . *   .  *  .  *  . "; Style: (FontSize: 7, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Full: 0, Top: 28); }
+            Label { Text: " *  .  *   .  *  .  *   . *  .  *  .   *  . *  .  *   .  *  .  *"; Style: (FontSize: 7, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Full: 0, Top: 36); }
+            
+            // Whipped cream asterisks above the title
+            Label { Text: "*"; Style: (FontSize: 18, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 16, Height: 16, Left: 320, Top: 2); }
+            Label { Text: "*"; Style: (FontSize: 22, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 20, Height: 20, Left: 335, Top: 0); }
+            Label { Text: "*"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 14, Height: 14, Left: 350, Top: 3); }
+            Label { Text: "*"; Style: (FontSize: 20, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 18, Height: 18, Left: 365, Top: 1); }
+            Label { Text: "*"; Style: (FontSize: 14, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 12, Height: 12, Left: 380, Top: 4); }
+            Label { Text: "*"; Style: (FontSize: 18, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 16, Height: 16, Left: 328, Top: 5); }
+            Label { Text: "*"; Style: (FontSize: 15, TextColor: #ffffff, RenderBold: true); Anchor: (Width: 13, Height: 13, Left: 358, Top: 6); }
+            
+            Label #Title {
+                Text: "PIE CLICKER";
+                Style: (FontSize: 22, TextColor: #0a1520, RenderBold: true, VerticalAlignment: Center, HorizontalAlignment: Center);
+                Anchor: (Full: 0);
+            }
+            
+            Label #Version {
+                Text: "v1.0.0";
+                Style: (FontSize: 10, TextColor: #0a1520, VerticalAlignment: Center);
+                Anchor: (Width: 40, Right: 10, Height: 45);
+            }
+        }
+        
+        // Main content area
+        Group #ContentArea {
+            FlexWeight: 1;
+            LayoutMode: Left;
+            
+            // Left panel - The Pie Zone!
+            Group #PiePanel {
+                Anchor: (Width: 260);
+                Background: (Color: #0f1a25);
+                LayoutMode: Top;
+                Padding: 15;
+                
+                // Pie counter - BIG and bold
+                Label #PieCount {
+                    Text: "0 pies";
+                    Style: (FontSize: 26, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center);
+                    Anchor: (Height: 40);
+                }
+                
+                Label #PiesPerSecond {
+                    Text: "per second: 0";
+                    Style: (FontSize: 13, TextColor: #2ec4b6, HorizontalAlignment: Center);
+                    Anchor: (Height: 20);
+                }
+                
+                // Hint about background updates - larger text
+                Label #UpdateHint {
+                    Text: "Pies accumulate in background - click to update";
+                    Style: (FontSize: 10, TextColor: #4a5a6a, HorizontalAlignment: Center);
+                    Anchor: (Height: 16);
+                }
+                
+                // Divider
+                Group {
+                    Anchor: (Height: 2, Top: 6, Bottom: 6);
+                    Background: (Color: #1a2a3a);
+                }
+                
+                // Big Pie Button Area with clickers
+                Group #PieArea {
+                    Anchor: (Height: 170);
+                    LayoutMode: Left;
+                    
+                    // Left clickers container
+                    Group #LeftClickers {
+                        Anchor: (Width: 50);
+                        LayoutMode: Top;
+                        Padding: (Top: 10);
+                    }
+                    
+                    // Center pie area
+                    Group #PieCenter {
+                        FlexWeight: 1;
+                        
+                        // Crust - quilted pattern with varied tan shades (more contrast)
+                        Group #PieCrust {
+                            Anchor: (Width: 150, Height: 150);
+                            LayoutMode: Top;
+                            // Row 1 - light to dark variation
+                            Group { LayoutMode: Left; Anchor: (Height: 30);
+                                Group { Anchor: (Width: 30); Background: (Color: #c9a070); }
+                                Group { Anchor: (Width: 30); Background: (Color: #9a7040); }
+                                Group { Anchor: (Width: 30); Background: (Color: #d4aa78); }
+                                Group { Anchor: (Width: 30); Background: (Color: #8a6535); }
+                                Group { Anchor: (Width: 30); Background: (Color: #b89058); }
+                            }
+                            // Row 2
+                            Group { LayoutMode: Left; Anchor: (Height: 30);
+                                Group { Anchor: (Width: 30); Background: (Color: #957040); }
+                                Group { Anchor: (Width: 30); Background: (Color: #c5a068); }
+                                Group { Anchor: (Width: 30); Background: (Color: #a07845); }
+                                Group { Anchor: (Width: 30); Background: (Color: #d0a570); }
+                                Group { Anchor: (Width: 30); Background: (Color: #8f6838); }
+                            }
+                            // Row 3
+                            Group { LayoutMode: Left; Anchor: (Height: 30);
+                                Group { Anchor: (Width: 30); Background: (Color: #cc9860); }
+                                Group { Anchor: (Width: 30); Background: (Color: #906a3a); }
+                                Group { Anchor: (Width: 30); Background: (Color: #b88850); }
+                                Group { Anchor: (Width: 30); Background: (Color: #d8b080); }
+                                Group { Anchor: (Width: 30); Background: (Color: #9c7548); }
+                            }
+                            // Row 4
+                            Group { LayoutMode: Left; Anchor: (Height: 30);
+                                Group { Anchor: (Width: 30); Background: (Color: #a88050); }
+                                Group { Anchor: (Width: 30); Background: (Color: #dab078); }
+                                Group { Anchor: (Width: 30); Background: (Color: #886030); }
+                                Group { Anchor: (Width: 30); Background: (Color: #c09858); }
+                                Group { Anchor: (Width: 30); Background: (Color: #987040); }
+                            }
+                            // Row 5
+                            Group { LayoutMode: Left; Anchor: (Height: 30);
+                                Group { Anchor: (Width: 30); Background: (Color: #b58848); }
+                                Group { Anchor: (Width: 30); Background: (Color: #9a7038); }
+                                Group { Anchor: (Width: 30); Background: (Color: #d5a870); }
+                                Group { Anchor: (Width: 30); Background: (Color: #8c6532); }
+                                Group { Anchor: (Width: 30); Background: (Color: #c8a060); }
+                            }
+                        }
+                        
+                        // The big clickable pie - darker orange
+                        TextButton #BigPieButton {
+                            Text: "";
+                            Anchor: (Width: 140, Height: 140);
+                            Style: (
+                                Default: (Background: (Color: #e88a10), LabelStyle: (FontSize: 32, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                                Hovered: (Background: (Color: #f09920), LabelStyle: (FontSize: 36, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                                Pressed: (Background: (Color: #d07808), LabelStyle: (FontSize: 28, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+                            );
+                        }
+                        
+                        // Whipped cream splotch - larger, shifted down-left, spreading outward
+                        Label { Text: "*"; Style: (FontSize: 32, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 28, Height: 28, Left: 48, Top: 68); }
+                        Label { Text: "*"; Style: (FontSize: 38, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 34, Height: 34, Left: 54, Top: 74); }
+                        Label { Text: "*"; Style: (FontSize: 28, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 24, Height: 24, Left: 58, Top: 64); }
+                        Label { Text: "*"; Style: (FontSize: 34, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 30, Height: 30, Left: 46, Top: 78); }
+                        Label { Text: "*"; Style: (FontSize: 26, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 22, Height: 22, Left: 62, Top: 70); }
+                        Label { Text: "*"; Style: (FontSize: 40, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 36, Height: 36, Left: 50, Top: 82); }
+                        Label { Text: "*"; Style: (FontSize: 24, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 20, Height: 20, Left: 60, Top: 76); }
+                        Label { Text: "*"; Style: (FontSize: 30, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 26, Height: 26, Left: 52, Top: 66); }
+                        Label { Text: "*"; Style: (FontSize: 28, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 24, Height: 24, Left: 56, Top: 84); }
+                        Label { Text: "*"; Style: (FontSize: 36, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 32, Height: 32, Left: 44, Top: 72); }
+                        Label { Text: "*"; Style: (FontSize: 22, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 18, Height: 18, Left: 64, Top: 80); }
+                        Label { Text: "*"; Style: (FontSize: 34, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 30, Height: 30, Left: 48, Top: 88); }
+                        // Additional asterisks spreading left and right on lower portion
+                        Label { Text: "*"; Style: (FontSize: 26, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 22, Height: 22, Left: 36, Top: 80); }
+                        Label { Text: "*"; Style: (FontSize: 30, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 26, Height: 26, Left: 38, Top: 86); }
+                        Label { Text: "*"; Style: (FontSize: 24, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 20, Height: 20, Left: 40, Top: 76); }
+                        Label { Text: "*"; Style: (FontSize: 28, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 24, Height: 24, Left: 70, Top: 78); }
+                        Label { Text: "*"; Style: (FontSize: 32, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 28, Height: 28, Left: 72, Top: 84); }
+                        Label { Text: "*"; Style: (FontSize: 22, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); Anchor: (Width: 18, Height: 18, Left: 68, Top: 72); }
+                        
+                        // Speckle decorations - wider coverage, more variation, 14 rows (darker than pie color)
+                        Label { Text: ". *  .     *     .       .     *  .     .  *  .     * ."; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 14); }
+                        Label { Text: "*     .       *  .     *  .     .  *     .  *  .     *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 24); }
+                        Label { Text: ". *     .  *  .     *     .  *  .     *     .  *  .     *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 34); }
+                        Label { Text: "*  .       .  *     .  *     .  *  .     *     .  *  ."; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 44); }
+                        Label { Text: ".     *     .  *  .       .  *     .  *  .     *     ."; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 54); }
+                        Label { Text: "*  .     *     .  *  .     *     .       .  *  .     *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 64); }
+                        Label { Text: ". *  .  *     .     *  .  *     .  *  .     *     .  *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 74); }
+                        Label { Text: "*     .     *  .       .     *  .     *  .  *  .     *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 84); }
+                        Label { Text: ". *     .  *     .  *  .     *  .       .  *     .  *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 94); }
+                        Label { Text: "*  .  *     .     *     .  *     .     *  .     *  .  *"; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 104); }
+                        Label { Text: ".     *  .  *  .     *  .     *  .  *     .  *     ."; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 114); }
+                        Label { Text: "*  .     *     .  *  .     *  .     *  .       .  * ."; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 124); }
+                        Label { Text: ". *  .     *     .     *  .  *     .     *  .  *     ."; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 134); }
+                        Label { Text: "      *     *     .  *     *     .  *     *  .  *    "; Style: (FontSize: 8, TextColor: #c87008cc, HorizontalAlignment: Center); Anchor: (Width: 175, Height: 12, Top: 144); }
+                    }
+                    
+                    // Right clickers container
+                    Group #RightClickers {
+                        Anchor: (Width: 50);
+                        LayoutMode: Top;
+                        Padding: (Top: 10);
+                    }
+                }
+                
+                // Click hint - updated text
+                Label #ClickHint {
+                    Text: "CLICK TO BAKE PIES!";
+                    Style: (FontSize: 12, TextColor: #5a6a7a, HorizontalAlignment: Center, RenderBold: true);
+                    Anchor: (Height: 18);
+                }
+                
+                // Spacer
+                Group { FlexWeight: 1; }
+                
+                // Leaderboard placement
+                Label #LeaderboardRank {
+                    Text: "#1 of 1 bakers";
+                    Style: (FontSize: 14, TextColor: #ffd700, RenderBold: true, HorizontalAlignment: Center);
+                    Anchor: (Height: 22);
+                }
+                
+                // Quick stats box - two lines (larger text)
+                Group #QuickStats {
+                    Anchor: (Height: 48);
+                    LayoutMode: Top;
+                    Background: (Color: #152535);
+                    Padding: 4;
+                    
+                    Label {
+                        Text: "Buildings bake pies automatically.";
+                        Style: (FontSize: 12, TextColor: #5a6a7a, HorizontalAlignment: Center);
+                        Anchor: (Height: 18);
+                    }
+                    Label {
+                        Text: "Stay online to keep baking!";
+                        Style: (FontSize: 12, TextColor: #5a6a7a, HorizontalAlignment: Center);
+                        Anchor: (Height: 18);
+                    }
+                }
+            }
+            
+            // Vertical divider
+            Group {
+                Anchor: (Width: 2);
+                Background: (Color: #1a2a3a);
+            }
+            
+            // Right panel - Tabs and content
+            Group #RightPanel {
+                FlexWeight: 1;
+                LayoutMode: Top;
+                Background: (Color: #0a1520);
+                
+                // Tab buttons
+                Group #TabBar {
+                    Anchor: (Height: 40);
+                    LayoutMode: Left;
+                    Background: (Color: #0f1a25);
+                    Padding: (Left: 5, Right: 5, Top: 5);
+                    
+                    TextButton #TabBuildings {
+                        Text: "BUILDINGS";
+                        FlexWeight: 1;
+                        Anchor: (Height: 32, Right: 3);
+                        Style: (
+                            Default: (Background: (Color: #2a3a4a), LabelStyle: (FontSize: 11, TextColor: #8a9aaa, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Hovered: (Background: (Color: #3a4a5a), LabelStyle: (FontSize: 11, TextColor: #aabbcc, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Pressed: (Background: (Color: #1a2a3a), LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+                        );
+                    }
+                    
+                    TextButton #TabUpgrades {
+                        Text: "UPGRADES";
+                        FlexWeight: 1;
+                        Anchor: (Height: 32, Right: 3);
+                        Style: (
+                            Default: (Background: (Color: #2a3a4a), LabelStyle: (FontSize: 11, TextColor: #8a9aaa, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Hovered: (Background: (Color: #3a4a5a), LabelStyle: (FontSize: 11, TextColor: #aabbcc, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Pressed: (Background: (Color: #1a2a3a), LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+                        );
+                    }
+                    
+                    TextButton #TabStats {
+                        Text: "STATS";
+                        FlexWeight: 1;
+                        Anchor: (Height: 32, Right: 3);
+                        Style: (
+                            Default: (Background: (Color: #2a3a4a), LabelStyle: (FontSize: 11, TextColor: #8a9aaa, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Hovered: (Background: (Color: #3a4a5a), LabelStyle: (FontSize: 11, TextColor: #aabbcc, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Pressed: (Background: (Color: #1a2a3a), LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+                        );
+                    }
+                    
+                    TextButton #TabLeaderboard {
+                        Text: "LEADERS";
+                        FlexWeight: 1;
+                        Anchor: (Height: 32);
+                        Style: (
+                            Default: (Background: (Color: #2a3a4a), LabelStyle: (FontSize: 11, TextColor: #8a9aaa, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Hovered: (Background: (Color: #3a4a5a), LabelStyle: (FontSize: 11, TextColor: #aabbcc, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                            Pressed: (Background: (Color: #1a2a3a), LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+                        );
+                    }
+                }
+                
+                // Tab header label
+                Label #TabHeader {
+                    Text: "Buy buildings for automatic pie production!";
+                    Style: (FontSize: 10, TextColor: #5a6a7a, HorizontalAlignment: Center);
+                    Anchor: (Height: 25, Top: 5);
+                }
+                
+                // Single content area for all tabs
+                Group #TabContent {
+                    FlexWeight: 1;
+                    LayoutMode: TopScrolling;
+                    Padding: 10;
+                    Background: (Color: #0a1218);
+                }
+            }
+        }
+        
+        // Bottom bar
+        Group #BottomBar {
+            Anchor: (Height: 32);
+            Background: (Color: #0f1a25);
+            Padding: (Left: 10, Right: 10);
+            LayoutMode: Left;
+            
+            // CurseForge note on left
+            Label {
+                Text: "Download Pie Clicker on CurseForge";
+                Style: (FontSize: 8, TextColor: #f16436, VerticalAlignment: Center);
+                Anchor: (Width: 180);
+            }
+            
+            // Centered tagline
+            Label {
+                Text: "Pie Clicker - Click. Build. Prosper.";
+                Style: (FontSize: 10, TextColor: #4a5a6a, VerticalAlignment: Center, HorizontalAlignment: Center);
+                FlexWeight: 1;
+            }
+            
+            // Spacer to balance the CurseForge label width (180 - 50 = 130)
+            Group { Anchor: (Width: 130); }
+            
+            TextButton #CloseButton {
+                Text: "CLOSE";
+                Anchor: (Width: 50, Height: 22);
+                Style: (
+                    Default: (Background: (Color: #1a2530), LabelStyle: (FontSize: 9, TextColor: #5a6a7a, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                    Hovered: (Background: (Color: #2a3540), LabelStyle: (FontSize: 9, TextColor: #8a9aaa, HorizontalAlignment: Center, VerticalAlignment: Center)),
+                    Pressed: (Background: (Color: #0a1520), LabelStyle: (FontSize: 9, TextColor: #aabbcc, HorizontalAlignment: Center, VerticalAlignment: Center))
+                );
+            }
+        }
+    }
+}

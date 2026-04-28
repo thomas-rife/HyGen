@@ -1,0 +1,8 @@
+{
+  "IncludeRoles": [
+    "HyGen_Enemy_Zombie",
+    "HyGen_Enemy_Archer",
+    "HyGen_Enemy_Diver",
+    "Eye_Void"
+  ]
+}

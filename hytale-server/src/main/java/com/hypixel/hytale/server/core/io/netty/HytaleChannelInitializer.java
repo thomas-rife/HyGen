@@ -1,0 +1,255 @@
+package com.hypixel.hytale.server.core.io.netty;
+
+import com.hypixel.hytale.common.util.FormatUtil;
+import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.protocol.FormattedMessage;
+import com.hypixel.hytale.protocol.io.PacketStatsRecorder;
+import com.hypixel.hytale.protocol.io.netty.PacketDecoder;
+import com.hypixel.hytale.protocol.io.netty.PacketEncoder;
+import com.hypixel.hytale.protocol.io.netty.ProtocolUtil;
+import com.hypixel.hytale.protocol.packets.connection.DisconnectType;
+import com.hypixel.hytale.protocol.packets.connection.QuicApplicationErrorCode;
+import com.hypixel.hytale.protocol.packets.connection.ServerDisconnect;
+import com.hypixel.hytale.server.core.HytaleServer;
+import com.hypixel.hytale.server.core.Message;
+import com.hypixel.hytale.server.core.config.RateLimitConfig;
+import com.hypixel.hytale.server.core.io.PacketHandler;
+import com.hypixel.hytale.server.core.io.PacketStatsRecorderImpl;
+import com.hypixel.hytale.server.core.io.handlers.InitialPacketHandler;
+import com.hypixel.hytale.server.core.io.stream.PendingStreamHandler;
+import com.hypixel.hytale.server.core.io.stream.StreamManager;
+import com.hypixel.hytale.server.core.io.transport.QUICTransport;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.ChannelInitializer;
+import io.netty.handler.codec.quic.QuicChannel;
+import io.netty.handler.codec.quic.QuicStreamChannel;
+import io.netty.handler.timeout.ReadTimeoutException;
+import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.handler.timeout.TimeoutException;
+import io.netty.handler.timeout.WriteTimeoutException;
+import io.netty.util.AttributeKey;
+import java.io.IOException;
+import java.nio.channels.ClosedChannelException;
+import java.security.cert.X509Certificate;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Level;
+import javax.annotation.Nonnull;
+
+public class HytaleChannelInitializer extends ChannelInitializer<Channel> {
+   public static final AttributeKey<PacketHandler> GAME_PACKET_HANDLER_ATTR = AttributeKey.valueOf("GAME_PACKET_HANDLER");
+
+   public HytaleChannelInitializer() {
+   }
+
+   @Override
+   protected void initChannel(Channel channel) {
+      if (channel instanceof QuicStreamChannel quicStreamChannel) {
+         QuicChannel parentChannel = quicStreamChannel.parent();
+         HytaleLogger.getLogger()
+            .at(Level.INFO)
+            .log(
+               "Received stream %d from %s to %s", quicStreamChannel.streamId(), NettyUtil.formatRemoteAddress(channel), NettyUtil.formatLocalAddress(channel)
+            );
+         QuicApplicationErrorCode rejectErrorCode = parentChannel.attr(QUICTransport.ALPN_REJECT_ERROR_CODE_ATTR).get();
+         if (rejectErrorCode != null) {
+            HytaleLogger.getLogger().at(Level.INFO).log("Rejecting stream from %s: client outdated (ALPN mismatch)", NettyUtil.formatRemoteAddress(channel));
+            channel.config().setAutoRead(false);
+            channel.pipeline().addLast("packetEncoder", new PacketEncoder());
+            channel.writeAndFlush(
+                  new ServerDisconnect(Message.translation("server.general.disconnect.clientOutdated").getFormattedMessage(), DisconnectType.Disconnect)
+               )
+               .addListener(
+                  future -> channel.eventLoop().schedule(() -> ProtocolUtil.closeApplicationConnection(channel, rejectErrorCode), 100L, TimeUnit.MILLISECONDS)
+               );
+            return;
+         }
+
+         X509Certificate clientCert = parentChannel.attr(QUICTransport.CLIENT_CERTIFICATE_ATTR).get();
+         if (clientCert != null) {
+            channel.attr(QUICTransport.CLIENT_CERTIFICATE_ATTR).set(clientCert);
+            HytaleLogger.getLogger().at(Level.FINE).log("Copied client certificate to stream: %s", clientCert.getSubjectX500Principal().getName());
+         }
+
+         PacketHandler existingHandler = parentChannel.attr(GAME_PACKET_HANDLER_ATTR).get();
+         if (existingHandler != null) {
+            HytaleLogger.getLogger().at(Level.INFO).log("Setting up auxiliary stream %d for %s", quicStreamChannel.streamId(), existingHandler.getIdentifier());
+            this.initAuxiliaryStream(channel, existingHandler);
+            return;
+         }
+      } else {
+         HytaleLogger.getLogger()
+            .at(Level.INFO)
+            .log("Received connection from %s to %s", NettyUtil.formatRemoteAddress(channel), NettyUtil.formatLocalAddress(channel));
+      }
+
+      boolean canRead = true;
+      boolean canWrite = true;
+      if (channel instanceof QuicStreamChannel streamChannel) {
+         canRead = !streamChannel.isInputShutdown();
+         canWrite = !streamChannel.isOutputShutdown();
+      }
+
+      PacketStatsRecorderImpl statsRecorder = new PacketStatsRecorderImpl();
+      channel.attr(PacketStatsRecorder.CHANNEL_KEY).set(statsRecorder);
+      if (canRead) {
+         Duration initialTimeout = HytaleServer.get().getConfig().getConnectionTimeouts().getInitial();
+         channel.attr(ProtocolUtil.PACKET_TIMEOUT_KEY).set(initialTimeout);
+         channel.pipeline().addLast("packetDecoder", new PacketDecoder());
+         RateLimitConfig rateLimitConfig = HytaleServer.get().getConfig().getRateLimitConfig();
+         if (rateLimitConfig.isEnabled()) {
+            channel.pipeline().addLast("rateLimit", new RateLimitHandler(rateLimitConfig.getBurstCapacity(), rateLimitConfig.getPacketsPerSecond()));
+         }
+      }
+
+      if (canWrite) {
+         channel.pipeline().addLast("packetEncoder", new PacketEncoder());
+         channel.pipeline().addLast("packetArrayEncoder", NettyUtil.PACKET_ARRAY_ENCODER_INSTANCE);
+      }
+
+      if (NettyUtil.PACKET_LOGGER.getLevel() != Level.OFF) {
+         channel.pipeline().addLast("logger", NettyUtil.LOGGER);
+      }
+
+      InitialPacketHandler playerConnection = new InitialPacketHandler(channel);
+      channel.pipeline().addLast("handler", new PlayerChannelHandler(playerConnection));
+      channel.pipeline().addLast(new HytaleChannelInitializer.ExceptionHandler());
+      if (channel instanceof QuicStreamChannel quicStreamChannel) {
+         quicStreamChannel.parent().attr(GAME_PACKET_HANDLER_ATTR).set(playerConnection);
+         quicStreamChannel.updatePriority(StreamManager.GAME_STREAM_PRIORITY);
+      }
+
+      playerConnection.registered(null);
+   }
+
+   private void initAuxiliaryStream(Channel channel, PacketHandler packetHandler) {
+      channel.pipeline().addLast("aux_read_timeout", new ReadTimeoutHandler(5L, TimeUnit.SECONDS));
+      channel.pipeline().addLast("packetDecoder", new PacketDecoder());
+      channel.pipeline().addLast("packetEncoder", new PacketEncoder());
+      channel.pipeline().addLast("pending_stream", new PendingStreamHandler(packetHandler));
+      channel.pipeline().addLast(new HytaleChannelInitializer.AuxiliaryStreamExceptionHandler(packetHandler.getIdentifier()));
+   }
+
+   @Override
+   public void exceptionCaught(@Nonnull ChannelHandlerContext ctx, Throwable cause) {
+      HytaleLogger.getLogger().at(Level.WARNING).withCause(cause).log("Got exception from netty pipeline in HytaleChannelInitializer!");
+      if (ctx.channel().isWritable()) {
+         ctx.channel()
+            .writeAndFlush(
+               new ServerDisconnect(Message.translation("server.general.disconnect.internalServerError").getFormattedMessage(), DisconnectType.Crash)
+            )
+            .addListener(ProtocolUtil.CLOSE_ON_COMPLETE);
+      } else {
+         ProtocolUtil.closeApplicationConnection(ctx.channel());
+      }
+   }
+
+   @Override
+   public void channelInactive(@Nonnull ChannelHandlerContext ctx) throws Exception {
+      ProtocolUtil.closeApplicationConnection(ctx.channel());
+      super.channelInactive(ctx);
+   }
+
+   private static class AuxiliaryStreamExceptionHandler extends ChannelInboundHandlerAdapter {
+      private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+      private final String identifier;
+
+      AuxiliaryStreamExceptionHandler(String identifier) {
+         this.identifier = identifier;
+      }
+
+      @Override
+      public void exceptionCaught(@Nonnull ChannelHandlerContext ctx, Throwable cause) {
+         if (!(cause instanceof ClosedChannelException)) {
+            LOGGER.at(Level.WARNING).withCause(cause).log("Exception in auxiliary stream for %s", this.identifier);
+            ctx.close();
+         }
+      }
+   }
+
+   private static class ExceptionHandler extends ChannelInboundHandlerAdapter {
+      @Nonnull
+      private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+      @Nonnull
+      private static final Message MESSAGE_DISCONNECT_TIMEOUT_READ = Message.translation("server.general.disconnect.timeout.read");
+      @Nonnull
+      private static final Message MESSAGE_DISCONNECT_TIMEOUT_WRITE = Message.translation("server.general.disconnect.timeout.write");
+      @Nonnull
+      private static final Message MESSAGE_DISCONNECT_TIMEOUT_CONNECTION = Message.translation("server.general.disconnect.timeout.connection");
+      @Nonnull
+      private final AtomicBoolean handled = new AtomicBoolean();
+
+      private ExceptionHandler() {
+      }
+
+      @Override
+      public void exceptionCaught(@Nonnull ChannelHandlerContext ctx, Throwable cause) {
+         if (!(cause instanceof ClosedChannelException)) {
+            ChannelHandler handler = ctx.pipeline().get("handler");
+            String identifier;
+            if (handler instanceof PlayerChannelHandler) {
+               identifier = ((PlayerChannelHandler)handler).getHandler().getIdentifier();
+            } else {
+               identifier = NettyUtil.formatRemoteAddress(ctx.channel());
+            }
+
+            if (this.handled.getAndSet(true)) {
+               if (cause instanceof IOException && cause.getMessage() != null) {
+                  String var5 = cause.getMessage();
+                  switch (var5) {
+                     case "Broken pipe":
+                     case "Connection reset by peer":
+                     case "An existing connection was forcibly closed by the remote host":
+                        return;
+                  }
+               }
+
+               LOGGER.at(Level.WARNING).withCause(cause).log("Already handled exception in ExceptionHandler but got another!");
+            } else if (cause instanceof TimeoutException) {
+               this.handleTimeout(ctx, cause, identifier);
+            } else {
+               LOGGER.at(Level.SEVERE).withCause(cause).log("Got exception from netty pipeline in ExceptionHandler: %s", cause.getMessage());
+               this.gracefulDisconnect(ctx, identifier, Message.translation("server.general.disconnect.internalServerError").getFormattedMessage());
+            }
+         }
+      }
+
+      private void handleTimeout(@Nonnull ChannelHandlerContext ctx, Throwable cause, String identifier) {
+         boolean readTimeout = cause instanceof ReadTimeoutException;
+         boolean writeTimeout = cause instanceof WriteTimeoutException;
+         String timeoutType = readTimeout ? "Read" : (writeTimeout ? "Write" : "Connection");
+         Message timeoutMessage = readTimeout
+            ? MESSAGE_DISCONNECT_TIMEOUT_READ
+            : (writeTimeout ? MESSAGE_DISCONNECT_TIMEOUT_WRITE : MESSAGE_DISCONNECT_TIMEOUT_CONNECTION);
+         NettyUtil.TimeoutContext context = ctx.channel().attr(NettyUtil.TimeoutContext.KEY).get();
+         String stage = context != null ? context.stage() : "unknown";
+         String duration = context != null ? FormatUtil.nanosToString(System.nanoTime() - context.connectionStartNs()) : "unknown";
+         LOGGER.at(Level.INFO).log("%s timeout for %s at stage '%s' after %s connected", timeoutType, identifier, stage, duration);
+         NettyUtil.CONNECTION_EXCEPTION_LOGGER
+            .at(Level.FINE)
+            .withCause(cause)
+            .log("%s timeout for %s at stage '%s' after %s connected", timeoutType, identifier, stage, duration);
+         this.gracefulDisconnect(ctx, identifier, timeoutMessage.getFormattedMessage());
+      }
+
+      private void gracefulDisconnect(@Nonnull ChannelHandlerContext ctx, String identifier, FormattedMessage reason) {
+         Channel channel = ctx.channel();
+         if (channel.isWritable()) {
+            channel.writeAndFlush(new ServerDisconnect(reason, DisconnectType.Disconnect))
+               .addListener(future -> ProtocolUtil.closeApplicationConnection(channel, QuicApplicationErrorCode.Timeout));
+            channel.eventLoop().schedule(() -> {
+               if (channel.isOpen()) {
+                  LOGGER.at(Level.FINE).log("Force closing %s after graceful disconnect attempt", identifier);
+                  ProtocolUtil.closeApplicationConnection(channel, QuicApplicationErrorCode.Timeout);
+               }
+            }, 1L, TimeUnit.SECONDS);
+         } else {
+            ProtocolUtil.closeApplicationConnection(channel, QuicApplicationErrorCode.Timeout);
+         }
+      }
+   }
+}

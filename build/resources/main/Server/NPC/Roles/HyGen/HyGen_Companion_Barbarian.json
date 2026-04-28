@@ -1,0 +1,62 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Tuluk_Fisherman",
+    "DropList": "Empty",
+    "DefaultPlayerAttitude": "Friendly",
+    "AttitudeGroup": "HyGen_Companion",
+    "Weapons": ["Weapon_Mace_Scrap"],
+    "OffHand": [],
+    "DefaultOffHandSlot": -1,
+    "NighttimeOffhandSlot": -1,
+    "WakingPeriod": [0.0, 24.0],
+    "BedBlockSet": "",
+    "ViewRange": 96,
+    "ViewSector": 360,
+    "AbsoluteDetectionRange": 96,
+    "AlertedRange": 96,
+    "HearingRange": 96,
+    "ApplySeparation": true,
+    "WanderRadius": 6,
+    "LeashDistance": 96,
+    "HardLeashDistance": 160,
+    "AttackDistance": 2.0,
+    "DesiredAttackDistanceRange": [1.4, 1.8],
+    "AttackPauseRange": [2.0, 2.0],
+    "CombatBehaviorDistance": 96,
+    "CombatBackOffAfterAttack": false,
+    "CombatBackOffDistanceRange": [1, 2],
+    "CombatBackOffDurationRange": [0.7, 1.1],
+    "CombatStrafeWeight": 3,
+    "CombatDirectWeight": 15,
+    "TargetRange": 96,
+    "ChaseRelativeSpeed": 0.86,
+    "MaxSpeed": 3.4,
+    "MaxHealth": 118,
+    "DisableDamageGroups": ["Self"],
+    "_InteractionVars": {
+      "Melee_Damage": {
+        "Interactions": [
+          {
+            "Parent": "NPC_Attack_Melee_Damage",
+            "DamageCalculator": {
+              "BaseDamage": {
+                "Physical": 13
+              }
+            }
+          }
+        ]
+      }
+    },
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    }
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.HyGen_Companion_Barbarian.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

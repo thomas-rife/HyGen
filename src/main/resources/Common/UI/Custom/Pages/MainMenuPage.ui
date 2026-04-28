@@ -1,0 +1,66 @@
+Group #MainMenuRoot {
+  Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+  LayoutMode: Middle;
+
+  Group #Panel {
+    Anchor: (Left: 100, Width: 500, Height: 750);
+    LayoutMode: Top;
+
+    Group #TitleLogo {
+      Anchor: (Width: 300, Height: 75, Bottom: 40);
+      Background: "images/HyGen.png";
+    }
+
+    Group #Buttons {
+      LayoutMode: Top;
+      Anchor: (Width: 450, Height: 500);
+
+      Button #LevelsBtn {
+        Anchor: (Width: 450, Height: 100, Bottom: 30);
+        Style: (
+          Default: (Background: "images/LevelsButton.png"),
+          Hovered: (Background: "images/LevelsButton(hovered).png"),
+          Pressed: (Background: "images/LevelsButton(clicked).png")
+        );
+      }
+
+      Button #HeroesBtn {
+        Anchor: (Width: 450, Height: 100, Bottom: 30);
+        Style: (
+          Default: (Background: "images/HeroesButton.png"),
+          Hovered: (Background: "images/HeroesButton(hover).png"),
+          Pressed: (Background: "images/HeroesButton-1.png")
+        );
+      }
+
+      Button #CameraTopBtn {
+        Anchor: (Width: 450, Height: 100);
+        Visible: true;
+        Style: (
+          Default: (Background: "images/CameraTop.png"),
+          Hovered: (Background: "images/CameraTop(Hovered).png"),
+          Pressed: (Background: "images/CameraTop(Clicked).png")
+        );
+      }
+
+      Button #CameraBackBtn {
+        Anchor: (Width: 450, Height: 100);
+        Visible: false;
+        Style: (
+          Default: (Background: "images/CameraBack.png"),
+          Hovered: (Background: "images/CameraBack(Hovered).png"),
+          Pressed: (Background: "images/CameraBack(Clicked).png")
+        );
+      }
+
+      Button #AiWorldGenBtn {
+        Anchor: (Width: 450, Height: 100, Top: 30);
+        Style: (
+          Default: (Background: "images/Endless.png"),
+          Hovered: (Background: "images/Endless(Hovered).png"),
+          Pressed: (Background: "images/Endless(Clicked).png")
+        );
+      }
+    }
+  }
+}

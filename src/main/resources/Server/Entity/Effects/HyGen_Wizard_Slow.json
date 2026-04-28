@@ -1,0 +1,12 @@
+{
+  "Name": "hygen.effect.wizard_slow",
+  "ApplicationEffects": {
+    "HorizontalSpeedMultiplier": 0.5,
+    "EntityBottomTint": "#5c6bc0",
+    "EntityTopTint": "#c5cae9"
+  },
+  "Duration": 5,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete",
+  "Debuff": true
+}

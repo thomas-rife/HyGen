@@ -1,0 +1,19 @@
+{
+  "Name": "hygen.effect.mage_ability_active",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#6a1b9a",
+    "EntityTopTint": "#e1bee7",
+    "Particles": [
+      {
+        "SystemId": "Impact_Critical",
+        "Color": "#ba68c8",
+        "Scale": 0.35,
+        "PositionOffset": { "X": 0.0, "Y": 2.8, "Z": 0.0 }
+      }
+    ]
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete",
+  "Debuff": false
+}

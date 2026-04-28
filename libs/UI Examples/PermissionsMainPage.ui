@@ -1,0 +1,390 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@IconEdit = "../Icons/perm_edit.png";
+@IconDelete = "../Icons/perm_delete.png";
+@IconAdd = "../Icons/perm_add.png";
+@IconChevronRight = "../Icons/perm_chevron_right.png";
+@IconMore = "../Icons/perm_more_horizontal.png";
+
+@IconButton = Button {
+  @Icon = "";
+  @Anchor = Anchor();
+  @Sounds = $Sounds.@ButtonsLight;
+
+  Style: (
+    Default: (Background: (TexturePath: @Icon, Color: #ffffff(0.9))),
+    Hovered: (Background: (TexturePath: @Icon, Color: #ffffff)),
+    Pressed: (Background: (TexturePath: @Icon, Color: #ffffff(0.75))),
+    Sounds: @Sounds
+  );
+  Anchor: (...@Anchor, Width: 28, Height: 28);
+};
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    @CloseButton = true;
+    Anchor: (Width: 900, Height: 700);
+
+    #Title {
+      $C.@Title #TitleLabel {
+        @Text = "Permissions Manager";
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 16);
+
+      Label #SubtitleLabel {
+        Anchor: (Bottom: 12, Horizontal: 6);
+        Style: (...$C.@DefaultLabelStyle, Wrap: true, FontSize: 14, TextColor: #9aa9b4);
+        Text: "Manage groups and player permissions at a glance.";
+      }
+
+      Group #Columns {
+        LayoutMode: Left;
+        Anchor: (Height: 560);
+
+        Group #GroupPanel {
+          LayoutMode: Top;
+          Anchor: (Width: 430, Height: 560);
+          Background: (TexturePath: "../Common/ContainerPanelPatch.png", Border: 4);
+          Padding: (Full: 12);
+
+          Label #GroupTitle {
+            Text: "Groups";
+            Anchor: (Bottom: 4);
+            Style: (...$C.@DefaultLabelStyle, RenderBold: true, FontSize: 15, TextColor: #c7d6df);
+          }
+
+          Label #GroupHint {
+            Anchor: (Bottom: 10);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5, Wrap: true);
+            Text: "Create a group, then open it to manage permissions and members.";
+          }
+
+          Label #GroupCreateLabel {
+            Anchor: (Bottom: 6);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+            Text: "Create group";
+          }
+
+          Group {
+            LayoutMode: Left;
+            Anchor: (Bottom: 10, Height: 34);
+
+            $C.@TextField #GroupNameInput {
+              Anchor: (Width: 150);
+              PlaceholderText: "Group name";
+            }
+
+            $C.@TextField #GroupPermissionInput {
+              Anchor: (Width: 190, Left: 8);
+              PlaceholderText: "Initial permission";
+            }
+
+            @IconButton #CreateGroupButton { @Icon = @IconAdd; @Anchor = (Left: 8, Top: 3); }
+          }
+
+          Label #GroupEmptyLabel {
+            Anchor: (Bottom: 6);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+            Text: "No groups found.";
+          }
+
+          Label #GroupOverflowLabel {
+            Anchor: (Bottom: 6);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+            Text: "Showing the first 10 groups.";
+          }
+
+          Group #GroupListScroller {
+            LayoutMode: TopScrolling;
+            ScrollbarStyle: $C.@DefaultScrollbarStyle;
+            Anchor: (Height: 300);
+
+            Group #GroupRow0 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel0 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit0 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete0 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow1 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel1 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit1 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete1 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow2 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel2 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit2 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete2 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow3 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel3 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit3 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete3 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow4 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel4 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit4 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete4 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow5 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel5 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit5 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete5 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow6 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel6 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit6 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete6 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow7 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel7 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit7 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete7 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow8 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel8 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit8 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete8 { @Icon = @IconDelete; }
+            }
+
+            Group #GroupRow9 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #GroupLabel9 {
+                Anchor: (Width: 260);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "group";
+              }
+
+              @IconButton #GroupEdit9 { @Icon = @IconEdit; @Anchor = (Right: 6); }
+              @IconButton #GroupDelete9 { @Icon = @IconDelete; }
+            }
+          }
+        }
+
+        Group #PlayerPanel {
+          LayoutMode: Top;
+          Anchor: (Left: 12, Width: 360, Height: 560);
+          Background: (TexturePath: "../Common/ContainerPanelPatch.png", Border: 4);
+          Padding: (Full: 12);
+
+          Label #PlayerTitle {
+            Text: "Players";
+            Anchor: (Bottom: 4);
+            Style: (...$C.@DefaultLabelStyle, RenderBold: true, FontSize: 15, TextColor: #c7d6df);
+          }
+
+          Label #PlayerHint {
+            Anchor: (Bottom: 10);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5, Wrap: true);
+            Text: "Pick an online player to edit groups and direct permissions.";
+          }
+
+          Label #PlayerEmptyLabel {
+            Anchor: (Bottom: 6);
+            Style: (...$C.@DefaultLabelStyle, FontSize: 12, TextColor: #8fa3b5);
+            Text: "No players online.";
+          }
+
+          Group #PlayerListScroller {
+            LayoutMode: TopScrolling;
+            ScrollbarStyle: $C.@DefaultScrollbarStyle;
+            Anchor: (Height: 360);
+
+            Group #PlayerRow0 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel0 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage0 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow1 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel1 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage1 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow2 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel2 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage2 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow3 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel3 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage3 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow4 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel4 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage4 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow5 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel5 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage5 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow6 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel6 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage6 { @Icon = @IconChevronRight; }
+            }
+
+            Group #PlayerRow7 {
+              LayoutMode: Left;
+              Anchor: (Bottom: 6, Height: 30);
+
+              Label #PlayerLabel7 {
+                Anchor: (Width: 240);
+                Style: (...$C.@DefaultLabelStyle, VerticalAlignment: Center);
+                Text: "player";
+              }
+
+              @IconButton #PlayerManage7 { @Icon = @IconChevronRight; }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

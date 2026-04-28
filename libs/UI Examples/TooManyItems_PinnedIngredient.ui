@@ -1,0 +1,20 @@
+$C = "../Common.ui";
+
+Group {
+  Anchor: (Height: 25);
+  LayoutMode: Left;
+  
+  ItemIcon #IngredientIcon {
+    Anchor: (Width: 20, Height: 20, Vertical: 0);
+  }
+  
+  Group { Anchor: (Width: 5); }
+  
+  Label #IngredientStatus {
+    Anchor: (Width: 180, Vertical: 0);
+    Style: (
+      FontSize: 13,
+      TextColor: #cccccc
+    );
+  }
+}

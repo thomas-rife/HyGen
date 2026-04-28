@@ -1,0 +1,411 @@
+@HeroIconSize = 72;
+@HeroIconInnerSize = 54;
+@HeroSlotWidth = 78;
+@HeroSlotSpacing = 8;
+@HealthBarWidth = 78;
+@HealthBarHeight = 14;
+@CooldownBarHeight = 8;
+@AbilityPanelWidth = 320;
+@AbilityRowHeight = 64;
+@AbilityIconSize = 42;
+@AbilityIconInnerSize = 34;
+
+Group #PartyHud {
+  Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+
+  Group #AbilityPanel {
+    Anchor: (Top: 16, Left: 20, Width: @AbilityPanelWidth, Height: 222);
+    Background: (Color: #08131d(0.82));
+    LayoutMode: Top;
+
+    Label {
+      Text: "PARTY ABILITIES";
+      Anchor: (Width: 284, Height: 22, Top: 10, Horizontal: 0);
+      Style: (
+        FontSize: 13,
+        TextColor: #f0f7ff,
+        HorizontalAlignment: Start,
+        RenderBold: true
+      );
+    }
+
+    Group #AbilitySlot1 {
+      Anchor: (Width: 292, Height: @AbilityRowHeight, Top: 8, Horizontal: 0);
+      Background: (Color: #10202d(0.86));
+      Visible: false;
+
+      ItemGrid #AbilityIcon1 {
+        Anchor: (Left: 10, Top: 11, Width: @AbilityIconSize, Height: @AbilityIconSize);
+        SlotsPerRow: 1;
+        AreItemsDraggable: false;
+        DisplayItemQuantity: false;
+        RenderItemQualityBackground: false;
+        Style: (
+          SlotSize: @AbilityIconSize,
+          SlotIconSize: @AbilityIconInnerSize,
+          SlotSpacing: 0
+        );
+      }
+
+      Label #AbilityTitle1 {
+        Text: "";
+        Anchor: (Left: 62, Top: 8, Width: 218, Height: 18);
+        Style: (
+          FontSize: 12,
+          TextColor: #ffffff,
+          HorizontalAlignment: Start,
+          RenderBold: true
+        );
+      }
+
+      Label #AbilityDesc1 {
+        Text: "";
+        Anchor: (Left: 62, Top: 28, Width: 218, Height: 28);
+        Style: (
+          FontSize: 10,
+          TextColor: #c7d4df,
+          HorizontalAlignment: Start,
+          VerticalAlignment: Start,
+          Wrap: true
+        );
+      }
+    }
+
+    Group #AbilitySlot2 {
+      Anchor: (Width: 292, Height: @AbilityRowHeight, Top: 6, Horizontal: 0);
+      Background: (Color: #10202d(0.86));
+      Visible: false;
+
+      ItemGrid #AbilityIcon2 {
+        Anchor: (Left: 10, Top: 11, Width: @AbilityIconSize, Height: @AbilityIconSize);
+        SlotsPerRow: 1;
+        AreItemsDraggable: false;
+        DisplayItemQuantity: false;
+        RenderItemQualityBackground: false;
+        Style: (
+          SlotSize: @AbilityIconSize,
+          SlotIconSize: @AbilityIconInnerSize,
+          SlotSpacing: 0
+        );
+      }
+
+      Label #AbilityTitle2 {
+        Text: "";
+        Anchor: (Left: 62, Top: 8, Width: 218, Height: 18);
+        Style: (
+          FontSize: 12,
+          TextColor: #ffffff,
+          HorizontalAlignment: Start,
+          RenderBold: true
+        );
+      }
+
+      Label #AbilityDesc2 {
+        Text: "";
+        Anchor: (Left: 62, Top: 28, Width: 218, Height: 28);
+        Style: (
+          FontSize: 10,
+          TextColor: #c7d4df,
+          HorizontalAlignment: Start,
+          VerticalAlignment: Start,
+          Wrap: true
+        );
+      }
+    }
+
+    Group #AbilitySlot3 {
+      Anchor: (Width: 292, Height: @AbilityRowHeight, Top: 6, Horizontal: 0);
+      Background: (Color: #10202d(0.86));
+      Visible: false;
+
+      ItemGrid #AbilityIcon3 {
+        Anchor: (Left: 10, Top: 11, Width: @AbilityIconSize, Height: @AbilityIconSize);
+        SlotsPerRow: 1;
+        AreItemsDraggable: false;
+        DisplayItemQuantity: false;
+        RenderItemQualityBackground: false;
+        Style: (
+          SlotSize: @AbilityIconSize,
+          SlotIconSize: @AbilityIconInnerSize,
+          SlotSpacing: 0
+        );
+      }
+
+      Label #AbilityTitle3 {
+        Text: "";
+        Anchor: (Left: 62, Top: 8, Width: 218, Height: 18);
+        Style: (
+          FontSize: 12,
+          TextColor: #ffffff,
+          HorizontalAlignment: Start,
+          RenderBold: true
+        );
+      }
+
+      Label #AbilityDesc3 {
+        Text: "";
+        Anchor: (Left: 62, Top: 28, Width: 218, Height: 28);
+        Style: (
+          FontSize: 10,
+          TextColor: #c7d4df,
+          HorizontalAlignment: Start,
+          VerticalAlignment: Start,
+          Wrap: true
+        );
+      }
+    }
+  }
+
+  Group #Content {
+    Anchor: (Top: 8, Width: 320, Height: 112, Horizontal: 0);
+    LayoutMode: Left;
+
+    Group #LeftSpacer {
+      FlexWeight: 1;
+    }
+
+    Group #HeroSlot1 {
+      Anchor: (Width: @HeroSlotWidth, Height: 112, Right: @HeroSlotSpacing);
+      LayoutMode: Top;
+      Visible: false;
+
+      Group #HeroIconFrame1 {
+        Anchor: (Width: @HeroIconSize, Height: @HeroIconSize, Bottom: 6);
+
+        Group #HeroBackActive1 {
+          Background: "../../Pages/images/HeroSlotSelected.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackAvailable1 {
+          Background: "../../Pages/images/HeroSlot.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackOccupied1 {
+          Background: "../../Pages/images/HeroSlot.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackDead1 {
+          Background: "../../Pages/images/HeroSlotDead.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroAbilityGlow1 {
+          Background: (Color: #4ecdc4(0.35));
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        ItemGrid #HeroIcon1 {
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          SlotsPerRow: 1;
+          AreItemsDraggable: false;
+          DisplayItemQuantity: false;
+          RenderItemQualityBackground: false;
+          Style: (
+            SlotSize: @HeroIconSize,
+            SlotIconSize: @HeroIconInnerSize,
+            SlotSpacing: 0
+          );
+        }
+
+        Group #HeroOverlay1 {
+          Background: (Color: #666666(0.60));
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+      }
+
+      Group #HealthBack1 {
+        Background: (Color: #1b2733(0.92));
+        Anchor: (Width: @HealthBarWidth, Height: @HealthBarHeight);
+
+        Group #HealthBar1 {
+          Background: (Color: #41c96d);
+          Anchor: (Width: @HealthBarWidth, Height: @HealthBarHeight);
+        }
+      }
+
+      Group #CooldownBack1 {
+        Background: (Color: #183049(0.88));
+        Anchor: (Width: @HealthBarWidth, Height: @CooldownBarHeight, Top: 3);
+        Visible: false;
+
+        Group #CooldownBar1 {
+          Background: (Color: #4ecdc4);
+          Anchor: (Width: @HealthBarWidth, Height: @CooldownBarHeight);
+        }
+      }
+    }
+
+    Group #HeroSlot2 {
+      Anchor: (Width: @HeroSlotWidth, Height: 112, Right: @HeroSlotSpacing);
+      LayoutMode: Top;
+      Visible: false;
+
+      Group #HeroIconFrame2 {
+        Anchor: (Width: @HeroIconSize, Height: @HeroIconSize, Bottom: 6);
+
+        Group #HeroBackActive2 {
+          Background: "../../Pages/images/HeroSlotSelected.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackAvailable2 {
+          Background: "../../Pages/images/HeroSlot.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackOccupied2 {
+          Background: "../../Pages/images/HeroSlot.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackDead2 {
+          Background: "../../Pages/images/HeroSlotDead.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroAbilityGlow2 {
+          Background: (Color: #4ecdc4(0.35));
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        ItemGrid #HeroIcon2 {
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          SlotsPerRow: 1;
+          AreItemsDraggable: false;
+          DisplayItemQuantity: false;
+          RenderItemQualityBackground: false;
+          Style: (
+            SlotSize: @HeroIconSize,
+            SlotIconSize: @HeroIconInnerSize,
+            SlotSpacing: 0
+          );
+        }
+
+        Group #HeroOverlay2 {
+          Background: (Color: #666666(0.60));
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+      }
+
+      Group #HealthBack2 {
+        Background: (Color: #1b2733(0.92));
+        Anchor: (Width: @HealthBarWidth, Height: @HealthBarHeight);
+
+        Group #HealthBar2 {
+          Background: (Color: #41c96d);
+          Anchor: (Width: @HealthBarWidth, Height: @HealthBarHeight);
+        }
+      }
+
+      Group #CooldownBack2 {
+        Background: (Color: #183049(0.88));
+        Anchor: (Width: @HealthBarWidth, Height: @CooldownBarHeight, Top: 3);
+        Visible: false;
+
+        Group #CooldownBar2 {
+          Background: (Color: #4ecdc4);
+          Anchor: (Width: @HealthBarWidth, Height: @CooldownBarHeight);
+        }
+      }
+    }
+
+    Group #HeroSlot3 {
+      Anchor: (Width: @HeroSlotWidth, Height: 112);
+      LayoutMode: Top;
+      Visible: false;
+
+      Group #HeroIconFrame3 {
+        Anchor: (Width: @HeroIconSize, Height: @HeroIconSize, Bottom: 6);
+
+        Group #HeroBackActive3 {
+          Background: "../../Pages/images/HeroSlotSelected.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackAvailable3 {
+          Background: "../../Pages/images/HeroSlot.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackOccupied3 {
+          Background: "../../Pages/images/HeroSlot.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroBackDead3 {
+          Background: "../../Pages/images/HeroSlotDead.png";
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        Group #HeroAbilityGlow3 {
+          Background: (Color: #4ecdc4(0.35));
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+
+        ItemGrid #HeroIcon3 {
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          SlotsPerRow: 1;
+          AreItemsDraggable: false;
+          DisplayItemQuantity: false;
+          RenderItemQualityBackground: false;
+          Style: (
+            SlotSize: @HeroIconSize,
+            SlotIconSize: @HeroIconInnerSize,
+            SlotSpacing: 0
+          );
+        }
+
+        Group #HeroOverlay3 {
+          Background: (Color: #666666(0.60));
+          Anchor: (Width: @HeroIconSize, Height: @HeroIconSize);
+          Visible: false;
+        }
+      }
+
+      Group #HealthBack3 {
+        Background: (Color: #1b2733(0.92));
+        Anchor: (Width: @HealthBarWidth, Height: @HealthBarHeight);
+
+        Group #HealthBar3 {
+          Background: (Color: #41c96d);
+          Anchor: (Width: @HealthBarWidth, Height: @HealthBarHeight);
+        }
+      }
+
+      Group #CooldownBack3 {
+        Background: (Color: #183049(0.88));
+        Anchor: (Width: @HealthBarWidth, Height: @CooldownBarHeight, Top: 3);
+        Visible: false;
+
+        Group #CooldownBar3 {
+          Background: (Color: #4ecdc4);
+          Anchor: (Width: @HealthBarWidth, Height: @CooldownBarHeight);
+        }
+      }
+    }
+
+    Group #RightSpacer {
+      FlexWeight: 1;
+    }
+  }
+}

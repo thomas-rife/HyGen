@@ -1,0 +1,10 @@
+Group #Downed {
+LayoutMode: Center;
+  Group #Content {
+    Group #DownedInfo {
+        Anchor: (Left: 20);
+        LayoutMode: Top;
+        Padding: (Right: 10);
+    }
+  }
+}

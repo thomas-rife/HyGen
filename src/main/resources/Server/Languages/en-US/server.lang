@@ -1,0 +1,17 @@
+items.Example_Block.name=Example Block
+server.npcRoles.HyGen_Companion_Melee.name=HyGen Vanguard
+server.npcRoles.HyGen_Companion_Vanguard.name=HyGen Vanguard
+server.npcRoles.HyGen_Companion_Archer.name=HyGen Archer
+server.npcRoles.HyGen_Companion_Support.name=HyGen Support
+server.npcRoles.HyGen_Companion_Bruiser.name=HyGen Bruiser
+server.npcRoles.HyGen_Companion_Scout.name=HyGen Scout
+server.npcRoles.HyGen_Companion_Barbarian.name=HyGen Barbarian
+server.npcRoles.HyGen_Companion_Mage.name=HyGen Mage
+server.npcRoles.HyGen_Companion_Monk.name=HyGen Monk
+server.npcRoles.HyGen_Companion_Oracle.name=HyGen Oracle
+server.npcRoles.HyGen_Companion_Warden.name=HyGen Warden
+server.npcRoles.HyGen_Companion_Wizard.name=HyGen Wizard
+server.npcRoles.HyGen_Enemy_Zombie.name=HyGen Bruiser
+server.npcRoles.HyGen_Enemy_Bruiser.name=HyGen Bruiser
+server.npcRoles.HyGen_Enemy_Archer.name=HyGen Archer
+server.npcRoles.HyGen_Enemy_Diver.name=HyGen Diver

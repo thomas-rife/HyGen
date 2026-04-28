@@ -1,0 +1,69 @@
+// Common UI definitions for Simple Storage Plugin
+// Provides reusable templates and styles
+
+// Default tooltip styles (matches base game InGame/Tooltips)
+// Use absolute path from Interface root for game assets
+@DefaultTooltipBackground = (TexturePath: "InGame/Tooltips/ItemTooltipDefault.png", Border: 24);
+@DefaultTextTooltipStyle = TextTooltipStyle(
+  Background: @DefaultTooltipBackground,
+  MaxWidth: 400,
+  LabelStyle: (Wrap: true, FontSize: 14),
+  Padding: 20,
+  ShowDelay: 0
+);
+
+// Default scrollbar style
+@DefaultScrollbarStyle = ScrollbarStyle(
+  Spacing: 6,
+  Size: 6,
+  Background: (Color: #1a2533),
+  Handle: (Color: #3a4a5a),
+  HoveredHandle: (Color: #4a5a6a),
+  DraggedHandle: (Color: #5a6a7a)
+);
+
+// Page overlay - full screen dark background with centered content
+@PageOverlay = Group {
+  Background: (Color: #000000(0.85));
+  LayoutMode: Middle;
+};
+
+// Container - the main panel that holds page content (matches reference @FullPaddingValue = 17)
+@Container = Group {
+  Background: (Color: #0d1117(0.95));
+  LayoutMode: Top;
+  Padding: (Full: 15);
+};
+
+// Title label style
+@Title = Label {
+  Style: (
+    FontSize: 24,
+    TextColor: #e0e8f0,
+    RenderBold: true,
+    HorizontalAlignment: Start,
+    VerticalAlignment: Center
+  );
+  Anchor: (Height: 40, Bottom: 10);
+};
+
+// Back/Close button that appears at top-right of container
+@BackButton = Button {
+  Anchor: (Width: 32, Height: 32);
+  Style: (
+    Default: (Background: (Color: #3a2a2a)),
+    Hovered: (Background: (Color: #5a3a3a)),
+    Pressed: (Background: (Color: #2a1a1a))
+  );
+  
+  Label {
+    Text: "X";
+    Style: (
+      FontSize: 18,
+      TextColor: #c0c0c0,
+      RenderBold: true,
+      HorizontalAlignment: Center,
+      VerticalAlignment: Center
+    );
+  }
+};

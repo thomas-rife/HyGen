@@ -1,0 +1,232 @@
+Group #AiWorldGenRoot {
+  Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+  LayoutMode: Middle;
+  Background: (Color: #000000(0.45));
+
+  Group #Container {
+    Anchor: (Width: 1120, Height: 760);
+    LayoutMode: Top;
+    Background: (Color: #101826(0.98));
+    OutlineColor: #6c84a2;
+    OutlineSize: 1;
+    Padding: (Full: 24);
+
+    Group #HeaderRow {
+      Anchor: (Height: 54, Bottom: 20);
+      LayoutMode: Left;
+
+      Label #Title {
+        Text: "Endless Mode Hub";
+        FlexWeight: 1;
+        Style: (FontSize: 30, TextColor: #f0f5ff, RenderBold: true, HorizontalAlignment: Start, VerticalAlignment: Center);
+      }
+
+      Button #ModeToggleBtn {
+        Anchor: (Width: 200, Height: 38, Right: 20);
+        Style: (
+          Default: (Background: (Color: #35506e)),
+          Hovered: (Background: (Color: #446688)),
+          Pressed: (Background: (Color: #2a4058))
+        );
+        Label #ModeToggleLabel {
+          Text: "Mode: Map Select";
+          Style: (FontSize: 16, TextColor: #f0f4ff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+      }
+
+      Button #CloseBtn {
+        Anchor: (Width: 110, Height: 38, Right: 0);
+        Style: (
+          Default: (Background: (Color: #35506e)),
+          Hovered: (Background: (Color: #446688)),
+          Pressed: (Background: (Color: #2a4058))
+        );
+        Label {
+          Text: "Back";
+          Style: (FontSize: 16, TextColor: #f0f4ff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+      }
+    }
+
+    Group #MainBody {
+      Anchor: (Top: 8, Bottom: 0, Left: 0, Right: 0);
+      LayoutMode: Left;
+
+      Group #LeftPane {
+        Anchor: (Width: 430, Height: 660, Right: 24);
+        LayoutMode: Top;
+        Background: (Color: #131f2d);
+        OutlineColor: #4f6782;
+        OutlineSize: 1;
+        Padding: (Full: 18);
+
+        Group #MapSelectPane {
+          Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+          LayoutMode: Top;
+          Visible: true;
+
+          Label {
+            Text: "Select an existing map:";
+            Style: (FontSize: 18, TextColor: #f4d6a0, RenderBold: true);
+            Anchor: (Height: 24, Bottom: 20);
+          }
+
+          Group #ScrollContainer {
+            Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+            
+            Group #MapGrid {
+              LayoutMode: Top;
+              Anchor: (Left: 0, Right: 0, Top: 0);
+
+              Button #MapLevelNode0 { Anchor: (Height: 50, Bottom: 10, Left: 0, Right: 0); Visible: false; Style: (Default: (Background: (Color: #35506e)), Hovered: (Background: (Color: #446688)), Pressed: (Background: (Color: #2a4058))); Label #MapLevelLabel0 { Text: "Level 1"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } }
+              Button #MapLevelNode1 { Anchor: (Height: 50, Bottom: 10, Left: 0, Right: 0); Visible: false; Style: (Default: (Background: (Color: #35506e)), Hovered: (Background: (Color: #446688)), Pressed: (Background: (Color: #2a4058))); Label #MapLevelLabel1 { Text: "Level 2"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } }
+              Button #MapLevelNode2 { Anchor: (Height: 50, Bottom: 10, Left: 0, Right: 0); Visible: false; Style: (Default: (Background: (Color: #35506e)), Hovered: (Background: (Color: #446688)), Pressed: (Background: (Color: #2a4058))); Label #MapLevelLabel2 { Text: "Level 3"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } }
+              Button #MapLevelNode3 { Anchor: (Height: 50, Bottom: 10, Left: 0, Right: 0); Visible: false; Style: (Default: (Background: (Color: #35506e)), Hovered: (Background: (Color: #446688)), Pressed: (Background: (Color: #2a4058))); Label #MapLevelLabel3 { Text: "Level 4"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } }
+              Button #MapLevelNode4 { Anchor: (Height: 50, Bottom: 10, Left: 0, Right: 0); Visible: false; Style: (Default: (Background: (Color: #35506e)), Hovered: (Background: (Color: #446688)), Pressed: (Background: (Color: #2a4058))); Label #MapLevelLabel4 { Text: "Level 5"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } }
+              Button #MapLevelNode5 { Anchor: (Height: 50, Bottom: 10, Left: 0, Right: 0); Visible: false; Style: (Default: (Background: (Color: #35506e)), Hovered: (Background: (Color: #446688)), Pressed: (Background: (Color: #2a4058))); Label #MapLevelLabel5 { Text: "Level 6"; Style: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center); } }
+            }
+          }
+        }
+
+        Group #AiGeneratePane {
+          Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+          LayoutMode: Top;
+          Visible: false;
+
+          Label #Prompt {
+            Text: "Describe what terrain to generate:";
+            Style: (FontSize: 16, TextColor: #f4d6a0, RenderBold: true);
+            Anchor: (Height: 22, Bottom: 12);
+          }
+
+          TextField #InputField {
+            Anchor: (Height: 42);
+            Background: (Color: #ffffff);
+            OutlineColor: #8898ad;
+            OutlineSize: 1;
+            Padding: (Horizontal: 10);
+            PlaceholderText: "e.g., snowy mountains, dense forest...";
+            AutoFocus: true;
+            MaxLength: 256;
+            Style: (FontSize: 12, TextColor: #333333);
+          }
+
+          Label #StrengthLabel {
+            Text: "Structure guidance (0.0 - 1.0)";
+            Style: (FontSize: 14, TextColor: #c7d9f2, RenderBold: true);
+            Anchor: (Height: 20, Top: 18, Bottom: 8);
+          }
+
+          TextField #StrengthField {
+            Anchor: (Width: 90, Height: 34);
+            Background: (Color: #ffffff);
+            OutlineColor: #8898ad;
+            OutlineSize: 1;
+            Padding: (Horizontal: 10);
+            PlaceholderText: "0.4";
+            MaxLength: 4;
+            Style: (FontSize: 12, TextColor: #333333);
+          }
+
+          Label #StrengthNote1 {
+            Text: "A lower value stays closer to the intended structure of the prompt and is more predictable over repeated runs.";
+            Style: (FontSize: 11, TextColor: #8fa3bd);
+            Anchor: (Height: 16, Top: 8);
+          }
+
+          Label #StrengthNote2 {
+            Text: "A higher value allows the machine learning model more variation in world creation, but can be less accurate to the prompt.";
+            Style: (FontSize: 11, TextColor: #8fa3bd);
+            Anchor: (Height: 16, Top: 4);
+          }
+
+          Button #ExploreToggleBtn {
+            Anchor: (Width: 140, Height: 30, Top: 16);
+            Style: (
+              Default: (Background: (Color: #35506e)),
+              Hovered: (Background: (Color: #446688)),
+              Pressed: (Background: (Color: #2a4058))
+            );
+            Label #ExploreToggleLabel {
+              Text: "Explore Mode: OFF";
+              Style: (FontSize: 12, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+          }
+
+          Label {
+            Text: "Toggle ON to just explore terrain without enemies.";
+            Style: (FontSize: 11, TextColor: #8fa3bd);
+            Anchor: (Height: 16, Top: 4);
+          }
+
+          Button #SendBtn {
+            Anchor: (Width: 140, Height: 40, Top: 18);
+            Style: (
+              Default: (Background: (Color: #4a9d6f)),
+              Hovered: (Background: (Color: #3a8d5f)),
+              Pressed: (Background: (Color: #2a7d4f))
+            );
+            Label {
+              Text: "Generate";
+              Style: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center);
+            }
+          }
+        }
+      }
+
+      Group #RightPane {
+        Anchor: (Width: 620, Height: 660);
+        LayoutMode: Top;
+        Background: (Color: #0f1724);
+        OutlineColor: #4f6782;
+        OutlineSize: 1;
+        Padding: (Full: 18);
+
+        Label #OutputLabel {
+          Text: "Status & Output";
+          Style: (FontSize: 18, TextColor: #f4d6a0, RenderBold: true);
+          Anchor: (Height: 24, Bottom: 12);
+        }
+
+        Group #OutputArea {
+          Anchor: (Top: 0, Bottom: 0, Left: 0, Right: 0);
+          LayoutMode: Top;
+          Background: (Color: #141d2a);
+          OutlineColor: #33465d;
+          OutlineSize: 1;
+          Padding: (Full: 18);
+
+          Label #OutputLine1 {
+            Text: "Ready to generate terrain.";
+            Style: (FontSize: 13, TextColor: #d7e3f3);
+            Anchor: (Height: 18, Bottom: 8);
+          }
+
+          Label #OutputLine2 {
+            Text: "";
+            Style: (FontSize: 12, TextColor: #8fa3bd);
+            Anchor: (Height: 18, Bottom: 6);
+          }
+
+          Label #OutputLine3 {
+            Text: "";
+            Style: (FontSize: 12, TextColor: #8fa3bd);
+            Anchor: (Height: 18, Bottom: 6);
+          }
+
+          Label #OutputLine4 {
+            Text: "";
+            Style: (FontSize: 12, TextColor: #8fa3bd);
+            Anchor: (Height: 18, Bottom: 6);
+          }
+
+          Label #OutputLine5 {
+            Text: "";
+            Style: (FontSize: 12, TextColor: #8fa3bd);
+            Anchor: (Height: 18, Bottom: 6);
+          }
+        }
+      }
+    }
+  }
+}

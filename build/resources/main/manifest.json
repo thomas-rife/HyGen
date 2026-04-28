@@ -1,0 +1,19 @@
+{
+  "Group": "com.example",
+  "Name": "HyGen",
+  "Version": "0.1.0",
+  "Description": "A simple leveling system plugin with level up/down blocks",
+  "Authors": [
+    {
+      "Name": "YourName"
+    }
+  ],
+  "Website": "",
+  "ServerVersion": "2026.02.17-255364b8e",
+  "Dependencies": {
+  },
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true,
+  "Main": "com.example.exampleplugin.LevelingPlugin"
+}

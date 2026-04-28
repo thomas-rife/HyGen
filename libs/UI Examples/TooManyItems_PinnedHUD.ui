@@ -1,0 +1,41 @@
+$C = "../Common.ui";
+
+Group #PinnedRoot {
+   Anchor: (Width: 250, Right: 10, Top: 200);
+  Background: (Color: #000000(0.0)); // Make root transparent
+  LayoutMode: Top;
+  
+  Group #PinnedContainer {
+    Anchor: (Width: 250, Height: 200);
+    Background: (Color: #000000(0.7));
+    LayoutMode: Top;
+    Padding: (Full: 10);
+  
+  Group #PinnedHeader {
+    Anchor: (Height: 30);
+    LayoutMode: Left;
+    
+    ItemIcon #PinnedIcon {
+      Anchor: (Width: 24, Height: 24);
+    }
+    
+    Group { Anchor: (Width: 5); }
+    
+    Label #PinnedName {
+      Style: (
+        FontSize: 14,
+        TextColor: #ffffff,
+        RenderBold: true
+      );
+    }
+  }
+  
+  Group { Anchor: (Height: 5); Background: (Color: #ffffff(0.1)); }
+  Group { Anchor: (Height: 5); }
+  
+  Group #PinnedIngredients {
+    FlexWeight: 1;
+    LayoutMode: Top;
+  }
+}
+}

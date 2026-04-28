@@ -1,0 +1,22 @@
+$C = "../Common.ui";
+
+Group {
+  Anchor: (Height: 50);
+  LayoutMode: Left;
+  Padding: (Left: 10, Right: 10);
+  Background: (Color: #2a2a2a); 
+  
+  ItemIcon #BenchIcon {
+    Anchor: (Width: 32, Height: 32);
+  }
+  
+  Group { Anchor: (Width: 10); }
+
+  Label #BenchName {
+    Style: (
+      FontSize: 18,
+      TextColor: #ffcc00,
+      RenderBold: true
+    );
+  }
+}

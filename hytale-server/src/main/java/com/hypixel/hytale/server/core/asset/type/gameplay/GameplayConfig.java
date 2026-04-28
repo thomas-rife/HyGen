@@ -1,0 +1,272 @@
+package com.hypixel.hytale.server.core.asset.type.gameplay;
+
+import com.hypixel.hytale.assetstore.AssetExtraInfo;
+import com.hypixel.hytale.assetstore.AssetKeyValidator;
+import com.hypixel.hytale.assetstore.AssetRegistry;
+import com.hypixel.hytale.assetstore.AssetStore;
+import com.hypixel.hytale.assetstore.codec.AssetBuilderCodec;
+import com.hypixel.hytale.assetstore.map.DefaultAssetMap;
+import com.hypixel.hytale.assetstore.map.JsonAssetWithMap;
+import com.hypixel.hytale.codec.Codec;
+import com.hypixel.hytale.codec.KeyedCodec;
+import com.hypixel.hytale.codec.lookup.MapKeyMapCodec;
+import com.hypixel.hytale.codec.validation.ValidatorCache;
+import com.hypixel.hytale.codec.validation.Validators;
+import com.hypixel.hytale.server.core.asset.type.item.config.ItemEntityConfig;
+import com.hypixel.hytale.server.core.asset.type.soundset.config.SoundSet;
+import javax.annotation.Nonnull;
+
+public class GameplayConfig implements JsonAssetWithMap<String, DefaultAssetMap<String, GameplayConfig>> {
+   public static final String DEFAULT_ID = "Default";
+   public static final GameplayConfig DEFAULT = new GameplayConfig();
+   @Nonnull
+   public static final MapKeyMapCodec<Object> PLUGIN_CODEC = new MapKeyMapCodec<>(true);
+   @Nonnull
+   public static final AssetBuilderCodec<String, GameplayConfig> CODEC = AssetBuilderCodec.builder(
+         GameplayConfig.class,
+         GameplayConfig::new,
+         Codec.STRING,
+         (config, s) -> config.id = s,
+         GameplayConfig::getId,
+         (asset, data) -> asset.data = data,
+         asset -> asset.data
+      )
+      .appendInherited(
+         new KeyedCodec<>("Gathering", GatheringConfig.CODEC),
+         (config, o) -> config.gatheringConfig = o,
+         config -> config.gatheringConfig,
+         (config, parent) -> config.gatheringConfig = parent.gatheringConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("World", WorldConfig.CODEC),
+         (config, o) -> config.worldConfig = o,
+         config -> config.worldConfig,
+         (config, parent) -> config.worldConfig = parent.worldConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("WorldMap", WorldMapConfig.CODEC),
+         (config, o) -> config.worldMapConfig = o,
+         config -> config.worldMapConfig,
+         (config, parent) -> config.worldMapConfig = parent.worldMapConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("Death", DeathConfig.CODEC),
+         (config, o) -> config.deathConfig = o,
+         config -> config.deathConfig,
+         (config, parent) -> config.deathConfig = parent.deathConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("Respawn", RespawnConfig.CODEC),
+         (config, o) -> config.respawnConfig = o,
+         config -> config.respawnConfig,
+         (config, parent) -> config.respawnConfig = parent.respawnConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("ShowItemPickupNotifications", Codec.BOOLEAN),
+         (config, showItemPickupNotifications) -> config.showItemPickupNotifications = showItemPickupNotifications,
+         config -> config.showItemPickupNotifications,
+         (config, parent) -> config.showItemPickupNotifications = parent.showItemPickupNotifications
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("ItemDurability", ItemDurabilityConfig.CODEC),
+         (config, o) -> config.itemDurabilityConfig = o,
+         config -> config.itemDurabilityConfig,
+         (config, parent) -> config.itemDurabilityConfig = parent.itemDurabilityConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("ItemEntity", ItemEntityConfig.CODEC),
+         (config, itemEntityConfig) -> config.itemEntityConfig = itemEntityConfig,
+         config -> config.itemEntityConfig,
+         (config, parent) -> config.itemEntityConfig = parent.itemEntityConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("Combat", CombatConfig.CODEC),
+         (config, combatConfig) -> config.combatConfig = combatConfig,
+         config -> config.combatConfig,
+         (config, parent) -> config.combatConfig = parent.combatConfig
+      )
+      .add()
+      .<MapKeyMapCodec.TypeMap<Object>>appendInherited(new KeyedCodec<>("Plugin", PLUGIN_CODEC), (config, i) -> {
+         if (config.pluginConfig.isEmpty()) {
+            config.pluginConfig = i;
+         } else {
+            MapKeyMapCodec.TypeMap<Object> temp = config.pluginConfig;
+            config.pluginConfig = new MapKeyMapCodec.TypeMap<>(PLUGIN_CODEC);
+            config.pluginConfig.putAll(temp);
+            config.pluginConfig.putAll(i);
+         }
+      }, config -> config.pluginConfig, (config, p) -> config.pluginConfig = p.pluginConfig)
+      .addValidator(Validators.nonNull())
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("Player", PlayerConfig.CODEC),
+         (config, playerConfig) -> config.playerConfig = playerConfig,
+         config -> config.playerConfig,
+         (config, parent) -> config.playerConfig = parent.playerConfig
+      )
+      .add()
+      .<CameraEffectsConfig>appendInherited(
+         new KeyedCodec<>("CameraEffects", CameraEffectsConfig.CODEC),
+         (config, i) -> config.cameraEffectsConfig = i,
+         config -> config.cameraEffectsConfig,
+         (config, p) -> config.cameraEffectsConfig = p.cameraEffectsConfig
+      )
+      .addValidator(Validators.nonNull())
+      .add()
+      .<String>appendInherited(
+         new KeyedCodec<>("CreativePlaySoundSet", SoundSet.CHILD_ASSET_CODEC),
+         (config, i) -> config.creativePlaySoundSet = i,
+         config -> config.creativePlaySoundSet,
+         (config, p) -> config.creativePlaySoundSet = p.creativePlaySoundSet
+      )
+      .addValidator(SoundSet.VALIDATOR_CACHE.getValidator())
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("Crafting", CraftingConfig.CODEC),
+         (config, o) -> config.craftingConfig = o,
+         config -> config.craftingConfig,
+         (config, parent) -> config.craftingConfig = parent.craftingConfig
+      )
+      .add()
+      .appendInherited(
+         new KeyedCodec<>("Spawn", SpawnConfig.CODEC),
+         (config, v) -> config.spawnConfig = v,
+         config -> config.spawnConfig,
+         (config, p) -> config.spawnConfig = p.spawnConfig
+      )
+      .add()
+      .<Integer>appendInherited(
+         new KeyedCodec<>("MaxEnvironmentalNPCSpawns", Codec.INTEGER),
+         (config, v) -> config.maxEnvironmentalNPCSpawns = v,
+         config -> config.maxEnvironmentalNPCSpawns,
+         (config, p) -> config.maxEnvironmentalNPCSpawns = p.maxEnvironmentalNPCSpawns
+      )
+      .documentation("The absolute maximum number of environmental NPC spawns. < 0 for infinite.")
+      .add()
+      .afterDecode(GameplayConfig::processConfig)
+      .build();
+   private static AssetStore<String, GameplayConfig, DefaultAssetMap<String, GameplayConfig>> ASSET_STORE;
+   @Nonnull
+   public static final ValidatorCache<String> VALIDATOR_CACHE = new ValidatorCache<>(new AssetKeyValidator<>(GameplayConfig::getAssetStore));
+   protected String id;
+   protected AssetExtraInfo.Data data;
+   protected GatheringConfig gatheringConfig = new GatheringConfig();
+   protected WorldConfig worldConfig = new WorldConfig();
+   protected WorldMapConfig worldMapConfig = new WorldMapConfig();
+   protected DeathConfig deathConfig = new DeathConfig();
+   protected ItemDurabilityConfig itemDurabilityConfig = new ItemDurabilityConfig();
+   protected ItemEntityConfig itemEntityConfig = new ItemEntityConfig();
+   protected RespawnConfig respawnConfig = new RespawnConfig();
+   protected CombatConfig combatConfig = new CombatConfig();
+   protected MapKeyMapCodec.TypeMap<Object> pluginConfig = MapKeyMapCodec.TypeMap.empty();
+   protected PlayerConfig playerConfig = new PlayerConfig();
+   protected CameraEffectsConfig cameraEffectsConfig = new CameraEffectsConfig();
+   protected CraftingConfig craftingConfig = new CraftingConfig();
+   protected SpawnConfig spawnConfig = new SpawnConfig();
+   protected String creativePlaySoundSet;
+   protected boolean showItemPickupNotifications = true;
+   protected transient int creativePlaySoundSetIndex;
+   protected int maxEnvironmentalNPCSpawns = 500;
+
+   public GameplayConfig() {
+   }
+
+   public static AssetStore<String, GameplayConfig, DefaultAssetMap<String, GameplayConfig>> getAssetStore() {
+      if (ASSET_STORE == null) {
+         ASSET_STORE = AssetRegistry.getAssetStore(GameplayConfig.class);
+      }
+
+      return ASSET_STORE;
+   }
+
+   public static DefaultAssetMap<String, GameplayConfig> getAssetMap() {
+      return (DefaultAssetMap<String, GameplayConfig>)getAssetStore().getAssetMap();
+   }
+
+   public GatheringConfig getGatheringConfig() {
+      return this.gatheringConfig;
+   }
+
+   public WorldConfig getWorldConfig() {
+      return this.worldConfig;
+   }
+
+   public WorldMapConfig getWorldMapConfig() {
+      return this.worldMapConfig;
+   }
+
+   public DeathConfig getDeathConfig() {
+      return this.deathConfig;
+   }
+
+   public boolean getShowItemPickupNotifications() {
+      return this.showItemPickupNotifications;
+   }
+
+   public ItemDurabilityConfig getItemDurabilityConfig() {
+      return this.itemDurabilityConfig;
+   }
+
+   public ItemEntityConfig getItemEntityConfig() {
+      return this.itemEntityConfig;
+   }
+
+   public RespawnConfig getRespawnConfig() {
+      return this.respawnConfig;
+   }
+
+   public CombatConfig getCombatConfig() {
+      return this.combatConfig;
+   }
+
+   public MapKeyMapCodec.TypeMap<Object> getPluginConfig() {
+      return this.pluginConfig;
+   }
+
+   public PlayerConfig getPlayerConfig() {
+      return this.playerConfig;
+   }
+
+   public CameraEffectsConfig getCameraEffectsConfig() {
+      return this.cameraEffectsConfig;
+   }
+
+   public String getCreativePlaySoundSet() {
+      return this.creativePlaySoundSet;
+   }
+
+   public int getCreativePlaySoundSetIndex() {
+      return this.creativePlaySoundSetIndex;
+   }
+
+   public CraftingConfig getCraftingConfig() {
+      return this.craftingConfig;
+   }
+
+   public int getMaxEnvironmentalNPCSpawns() {
+      return this.maxEnvironmentalNPCSpawns;
+   }
+
+   @Nonnull
+   public SpawnConfig getSpawnConfig() {
+      return this.spawnConfig;
+   }
+
+   protected void processConfig() {
+      if (this.creativePlaySoundSet != null) {
+         this.creativePlaySoundSetIndex = SoundSet.getAssetMap().getIndex(this.creativePlaySoundSet);
+      }
+   }
+
+   public String getId() {
+      return this.id;
+   }
+}

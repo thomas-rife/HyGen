@@ -1,0 +1,16 @@
+{
+  "prefabFile": "prefabs/my_hytale_map.prefab.json",
+  "originX": 0,
+  "originY": 0,
+  "originZ": 0,
+  "spawnX": 0,
+  "spawnY": 128,
+  "spawnZ": 0,
+  "environment": "Default",
+  "flatWorld": true,
+  "flatSurfaceY": -1,
+  "flatBaseBlock": "Rock_Stone",
+  "flatSubSurfaceBlock": "Soil_Dirt",
+  "flatSurfaceBlock": "Soil_Grass",
+  "snowBlockFallback": "Soil_Grass"
+}

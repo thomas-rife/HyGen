@@ -1,0 +1,77 @@
+{
+  "Version": 4,
+  "UUID": {
+    "$binary": "OKhnA9Om/lQZ0pcrRjpabQ==",
+    "$type": "04"
+  },
+  "DisplayName": "20250419 Elazkor",
+  "Seed": 1776209936345,
+  "SpawnProvider": {
+    "Id": "Global",
+    "SpawnPoint": {
+      "X": 2048.5,
+      "Y": 67.0,
+      "Z": 2048.5,
+      "Pitch": 0.0,
+      "Yaw": 180.0,
+      "Roll": 0.0
+    }
+  },
+  "WorldGen": {
+    "Type": "Hytale",
+    "Name": "Default",
+    "Version": "0.0.0"
+  },
+  "WorldMap": {
+    "Type": "WorldGen"
+  },
+  "ChunkStorage": {
+    "Type": "Hytale"
+  },
+  "ChunkConfig": {},
+  "IsTicking": true,
+  "IsBlockTicking": true,
+  "IsPvpEnabled": false,
+  "IsFallDamageEnabled": true,
+  "IsGameTimePaused": false,
+  "GameTime": "0001-02-03T05:24:20.820985330Z",
+  "ForcedWeather": "Zone2_Sunny",
+  "ClientEffects": {
+    "SunHeightPercent": 100.0,
+    "SunAngleDegrees": 0.0,
+    "BloomIntensity": 0.30000001192092896,
+    "BloomPower": 8.0,
+    "SunIntensity": 0.25,
+    "SunshaftIntensity": 0.30000001192092896,
+    "SunshaftScaleFactor": 4.0
+  },
+  "RequiredPlugins": {},
+  "GameMode": "Adventure",
+  "IsSpawningNPC": true,
+  "IsSpawnMarkersEnabled": true,
+  "IsAllNPCFrozen": false,
+  "GameplayConfig": "Default",
+  "Death": {
+    "RespawnController": {
+      "Type": "HomeOrSpawnPoint"
+    },
+    "ItemsLossMode": "Configured",
+    "ItemsAmountLossPercentage": 50.0,
+    "ItemsDurabilityLossPercentage": 10.0
+  },
+  "DaytimeDurationSeconds": 1728,
+  "NighttimeDurationSeconds": 1152,
+  "IsCompassUpdating": true,
+  "IsSavingPlayers": true,
+  "IsSavingChunks": true,
+  "SaveNewChunks": true,
+  "IsUnloadingChunks": true,
+  "IsObjectiveMarkersEnabled": true,
+  "DeleteOnUniverseStart": false,
+  "DeleteOnRemove": false,
+  "DisabledFluidTickers": [],
+  "ResourceStorage": {
+    "Type": "Hytale"
+  },
+  "Plugin": {}
+}

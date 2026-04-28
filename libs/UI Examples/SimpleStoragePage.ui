@@ -1,0 +1,292 @@
+// Simple Storage Page UI
+// Uses two separate containers matching in-game chest layout
+
+$C = "../Common.ui";
+
+// In-game slot dimensions (from InGame/Common.ui)
+@SlotSize = 74;
+@SlotSpacing = 2;
+@SlotsPerRow = 9;
+@GridPadding = 2;
+
+// Calculate grid width for 9 slots: (74*9) + (2*8) + (2*2) = 666 + 16 + 4 = 686
+@GridWidth = (@SlotSize * @SlotsPerRow) + (@SlotSpacing * (@SlotsPerRow - 1)) + (@GridPadding * 2);
+// Container width - slightly wider than game's 715 to fit 9 slots
+@ContainerWidth = 717;
+
+// Action button sizing (matches ContainerPanel.ui)
+@ActionButtonWidth = 40;
+@ActionButtonIconSize = 24;
+
+// Vertical spacing between panels (matches InGame/Common.ui @VerticalPanelSpacing)
+@PanelSpacing = 8;
+
+// Side panel width (matches InGame/Common.ui)
+@SidePanelWidth = 300;
+@HorizontalPanelSpacing = 38;
+
+// Total page width: left spacer + center panel + spacing + right panel
+@TotalPageWidth = @SidePanelWidth + @HorizontalPanelSpacing + @ContainerWidth + @HorizontalPanelSpacing + @SidePanelWidth;
+
+$C.@PageOverlay {}
+
+// Outer layout - fixed width that centers automatically
+Group #PageLayout {
+  Anchor: (Width: @TotalPageWidth, Top: 178, Bottom: 20);
+  LayoutMode: Left;
+
+  // ========== LEFT SPACER: Empty space for centering ==========
+  Group #LeftSpacer {
+    Anchor: (Width: @SidePanelWidth + @HorizontalPanelSpacing);
+  }
+
+  // ========== CENTER CONTENT: Storage + Inventory stacked vertically ==========
+  Group #MainLayout {
+    Anchor: (Width: @ContainerWidth);
+    LayoutMode: Top;
+
+    // ========== TOP CONTAINER: Simple Storage ==========
+    $C.@Container #StorageContainer {
+      Anchor: (Width: @ContainerWidth, Bottom: @PanelSpacing);
+
+      #Title {
+        Group {
+          LayoutMode: Left;
+
+          $C.@Title {
+            @Text = "Simple Storage";
+          }
+
+          Group {
+            FlexWeight: 1;
+          }
+
+          $C.@HeaderSearch {}
+
+          // Action buttons matching ContainerPanel.ui style (after search)
+          Button #SortToggleButton {
+            Anchor: (Width: @ActionButtonWidth, Left: 4);
+            TooltipText: "Sort by Quantity";
+            TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+
+            Group {
+              Anchor: (Width: @ActionButtonIconSize, Height: @ActionButtonIconSize);
+              Background: (TexturePath: "SortIcon.png");
+            }
+          }
+
+          Button #PutAllButton {
+            Anchor: (Width: @ActionButtonWidth, Left: 4);
+            TooltipText: "Put All";
+            TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+
+            Group {
+              Anchor: (Width: @ActionButtonIconSize, Height: @ActionButtonIconSize);
+              Background: (TexturePath: "PutAll.png");
+            }
+          }
+
+          Button #QuickStackButton {
+            Anchor: (Width: @ActionButtonWidth, Left: 4);
+            TooltipText: "Quick Stack";
+            TextTooltipStyle: $C.@DefaultTextTooltipStyle;
+
+            Group {
+              Anchor: (Width: @ActionButtonIconSize, Height: @ActionButtonIconSize);
+              Background: (TexturePath: "QuickStack.png");
+            }
+          }
+        }
+      }
+
+      #Content {
+        LayoutMode: Top;
+
+        // Capacity bar section
+        Group #CapacitySection {
+          LayoutMode: Left;
+          Anchor: (Height: 24, Bottom: 6);
+          
+          Label {
+            Text: "Capacity:";
+            Style: (FontSize: 13, TextColor: #96a9be, VerticalAlignment: Center, RenderBold: true);
+            Anchor: (Width: 65);
+          }
+          
+          Group #CapacityBarBackground {
+            Anchor: (Width: 180, Height: 14);
+            Background: (TexturePath: "Slot.png");
+            Padding: (Full: 2);
+            
+            ProgressBar #CapacityBar {
+              Anchor: (Width: 176, Height: 10);
+              BarTexturePath: "SlotHighlight.png";
+            }
+          }
+          
+          Label #CapacityLabel {
+            Text: "0 / 100 types";
+            Style: (FontSize: 11, TextColor: #b4c8c9, VerticalAlignment: Center);
+            Anchor: (Left: 10);
+          }
+        }
+
+        // Scrollable storage grid container
+        Group #StorageGridWrapper {
+          Anchor: (Height: 320);
+
+          Group #StorageGridContainer {
+            Anchor: (Height: 320, Width: 690);
+            LayoutMode: TopScrolling;
+            Background: #202c3b(0);
+            Padding: (Full: 0);
+            ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+            // Storage items appended here dynamically as SimpleStorageSlot.ui
+            Group #StorageGrid {
+              Anchor: (Width: 690);
+              LayoutMode: LeftCenterWrap;
+            }
+          }
+        }
+      }
+    }
+
+    // ========== BOTTOM CONTAINER: Player Inventory ==========
+    $C.@Container #InventoryContainer {
+      Anchor: (Width: @ContainerWidth);
+
+      #Title {
+        LayoutMode: Left;
+
+        $C.@Title {
+          @Text = "Inventory";
+        }
+      }
+
+      #Content {
+        LayoutMode: Top;
+
+        // Player inventory (4 rows of 9 - combines storage and hotbar)
+        Group #PlayerInventoryWrapper {
+          Anchor: (Height: 380);
+
+          Group #PlayerInventoryContainer {
+            Anchor: (Height: 380, Width: 690);
+            LayoutMode: Top;
+            Background: #202c3b(0);
+            Padding: (Full: 0);
+
+            Group #PlayerInventory {
+              Anchor: (Width: 690);
+              LayoutMode: LeftCenterWrap;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ========== RIGHT PANEL: Storage Info ==========
+  Group #InfoPanelWrapper {
+    Anchor: (Width: @SidePanelWidth + @HorizontalPanelSpacing);
+    LayoutMode: Top;
+
+    $C.@Container #InfoPanel {
+      Anchor: (Width: @SidePanelWidth, Left: @HorizontalPanelSpacing);
+
+      #Title {
+        $C.@Title {
+          @Text = "Storage Info";
+        }
+      }
+
+      #Content {
+        LayoutMode: Top;
+        
+        // Block icon preview area
+        Group #BlockPreview {
+          Anchor: (Height: 150);
+          LayoutMode: Middle;
+          
+          // Block icon - large centered display
+          ItemSlot #BlockIcon {
+            Anchor: (Width: 100, Height: 100);
+            ShowQualityBackground: true;
+          }
+        }
+        
+        // Separator
+        Group {
+          Anchor: (Height: 1, Bottom: 12);
+          Background: #1b2533;
+        }
+        
+        // Upgrades section
+        Group #UpgradesSection {
+          LayoutMode: Top;
+          Padding: (Horizontal: 8);
+          
+          // Upgrades header
+          Group {
+            LayoutMode: Left;
+            Anchor: (Height: 30, Bottom: 8);
+            
+            Label {
+              Text: "UPGRADES";
+              Style: (
+                FontSize: 15,
+                TextColor: #b4c8c9,
+                RenderBold: true,
+                RenderUppercase: true,
+                VerticalAlignment: Center,
+                FontName: "Secondary"
+              );
+            }
+            
+            Group {
+              FlexWeight: 1;
+            }
+            
+            Label #UpgradeCount {
+              Text: "0 / 6";
+              Style: (
+                FontSize: 15,
+                TextColor: #96a9be,
+                RenderBold: true,
+                VerticalAlignment: Center
+              );
+            }
+          }
+          
+          // Upgrade slots container - dynamically populated
+          Group #UpgradeSlotsWrapper {
+            LayoutMode: Middle;
+            Anchor: (Height: 240);
+            
+            Group #UpgradeSlotsContainer {
+              LayoutMode: LeftCenterWrap;
+              Anchor: (Width: 230);
+              Padding: (Top: 4);
+              
+              // Upgrade slots are dynamically appended here from UpgradeSlot.ui
+            }
+          }
+          
+          // Upgrade info text
+          Group #UpgradeInfo {
+            Anchor: (Height: 30, Top: 4);
+            
+            Label #InfoText {
+              Text: "Click to add items";
+              Style: (FontSize: 12, TextColor: #666666, Alignment: Center, RenderItalics: true);
+              Anchor: (Full: 0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

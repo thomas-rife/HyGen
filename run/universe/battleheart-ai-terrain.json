@@ -1,0 +1,14 @@
+{
+  "pythonEndpoint": "http://localhost:8080",
+  "requestTimeoutMillis": 1200000,
+  "downloadTimeoutMillis": 30000,
+  "generatedWorldPrefix": "aiworld_",
+  "tileBatchSize": 32,
+  "gridSize": 3,
+  "overlap": 64,
+  "img2imgStrength": 0.6,
+  "placementMode": "SURFACE_SHELL",
+  "surfaceShellDepth": 8,
+  "teleportAfterComplete": true,
+  "deleteFailedWorlds": true
+}

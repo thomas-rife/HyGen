@@ -1,0 +1,19 @@
+{
+  "Name": "hygen.effect.archer_ability_active",
+  "ApplicationEffects": {
+    "EntityBottomTint": "#43a047",
+    "EntityTopTint": "#dcedc8",
+    "Particles": [
+      {
+        "SystemId": "Impact_Critical",
+        "Color": "#8bc34a",
+        "Scale": 0.35,
+        "PositionOffset": { "X": 0.0, "Y": 2.8, "Z": 0.0 }
+      }
+    ]
+  },
+  "Infinite": true,
+  "OverlapBehavior": "Overwrite",
+  "RemovalBehavior": "Complete",
+  "Debuff": false
+}
