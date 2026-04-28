@@ -62,7 +62,7 @@ Create large custom landscapes from a simple description. The mod connects to a 
 
 Everything runs locally. Your prompts and generated terrain stay on your machine, with no external generation service required.
 
-- Here is the link to the server: [GitHub](https://github.com/thomas-rife/HyGen-Local-Server#)
+- Link to the server [GitHub](https://github.com/thomas-rife/HyGen-Local-Server#)
 
 ## 1. Requirements
 
